@@ -50,10 +50,7 @@ class Client(TenantMixin):
     <p>To create a tenant run the following commands:</p>
 <pre>from customers.models import Client</pre>
 <pre>
-Client(domain_url='{{ hostname }}',
-    schema_name='public',
-    name='Trendy SaSS',
-    description='Public Tenant').save()</pre>
+KnowledgeBase(domain_url='104.199.169.113', schema_name='public', name='KnowledgeBase Manager', description='Public Tenant').save()</pre>
     <p>Done! <code>django-tenant-schemas</code> will now be able to locate our public tenant and won't return 404. Refresh this page to see the next step.</p>
 {% elif only_public_tenant %}
     <h2>Third Step: Create Tenants</h2>
