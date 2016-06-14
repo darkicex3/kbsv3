@@ -6,7 +6,7 @@ from tenant_schemas.utils import remove_www
 
 
 class HomeView(TemplateView):
-    template_name = "index_publlic.html"
+    template_name = "index_public.html"
 
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
