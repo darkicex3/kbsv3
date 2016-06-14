@@ -30,7 +30,7 @@ def daily_recap(request):
 
 class TenantView(FormView):
     form_class = GenerateUsersForm
-    template_name = "index_public.html"
+    template_name = "index_tenant.html"
     success_url = "/"
 
     def get_context_data(self, **kwargs):
