@@ -9,8 +9,6 @@ import datetime
 from django.utils import timezone
 from django.db import models
 from colorfield.fields import ColorField
-from djorm_pgfulltext.models import SearchManager
-from djorm_pgfulltext.fields import VectorField
 
 
 def get_upload_filename(instance, filename):
@@ -138,15 +136,6 @@ class Article(models.Model):
     users_bigup = models.ManyToManyField(User, blank=True, related_name='users_bigup')
     users_view = models.ManyToManyField(User, blank=True, related_name='users_view')
     users_read = models.ManyToManyField(User, blank=True, related_name='users_read')
-
-    search_index = VectorField()
-
-    objects = SearchManager(
-        fields=('title', 'content'),
-        config='pg_catalog.english',  # this is default
-        search_field='search_index',  # this is default
-        auto_update_search_field=True
-    )
 
     def save(self, *args, **kwargs):
         if not self.id:
