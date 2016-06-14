@@ -7,10 +7,9 @@ from notifications import urls
 from . import settings
 
 urlpatterns = [
-
-    # url(r'^$', TenantView.as_view()),
+    url(r'^$', TenantView.as_view()),
     url(r'^site_media/media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT,}),
-    url('^inbox/notifications/', include(notifications.urls, namespace='notifications')),
+    url(r'^inbox/notifications/', include(notifications.urls, namespace='notifications')),
     url(r'^attachments/', include('attachments.urls', namespace='attachments')),
     url(r'^summernote/', include('django_summernote.urls')),
     url(r'^manager/', include('apps.manager.urls', namespace='contents')),
