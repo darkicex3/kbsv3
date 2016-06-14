@@ -9,13 +9,11 @@ from urllib.parse import urlparse
 
 from apps import registration
 
-DEBUG = False
+DEBUG = True
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
-
-ALLOWED_HOSTS = ['*']
 
 MANAGERS = ADMINS
 
@@ -118,7 +116,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(os.path.dirname(__file__), "templates")],
-        'APP_DIRS': True,
+        'APP_DIRS': False,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.request',
