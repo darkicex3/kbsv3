@@ -20,9 +20,9 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'tenant_schemas.postgresql_backend',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'newdb',  # Or path to database file if using sqlite3.
-        'USER': 'me',
-        'PASSWORD': 'a',
+        'NAME': 'kbv3_database',  # Or path to database file if using sqlite3.
+        'USER': 'maximus',
+        'PASSWORD': 'MAXsky1995',
         'HOST': 'localhost',  # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '',  # Set to empty string for default.
     }
