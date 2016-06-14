@@ -1,0 +1,112 @@
+<!-- MODAL -->
+
+<div class="modal fade bottom in modal-submit-articles" id="modal_change_img" role="dialog"
+     aria-labelledby="myModalLabel"
+     aria-hidden="true" xmlns="http://www.w3.org/1999/html">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i>
+                </button>
+                <h4 class="modal-title modal-title-sign-in" id="myModalLabel">Change Your Avatar !</h4>
+            </div>
+            <div class="modal-body">
+                <form id="avatar_form" class="form_modal_style">
+                    {% csrf_token %}
+                    <label for="image">
+                        Choose Your Avatar</label>
+                    <input id="image" type="file" class="" name="image">
+                    <div class="clearfix"></div>
+                    <input type="submit" name="submit" value="Submit" class="btn-submit">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bottom in modal-display-article" tabindex="-1" data-focus-on="input:first" id="display-article">
+    <div class="modal-stats-article float-menu-left action-bar-modal"></div>
+    <div class="modal-glossary-article"></div>
+    <div class="outside">
+        <div class="modal-dialog modal-dialog-article">
+            <div class="modal-content modal-content-article">
+                <div id="container"></div>
+                <div class="modal-body modal-body-article">
+
+                </div>
+            </div>
+
+
+            <div class="footer-article">
+                <div class="comment-mark">
+                    <div class="step1">
+                        <div class="sentiment">
+                            <i id="0" class="mark material-icons md-60">sentiment_very_dissatisfied</i>
+                            <i id="1" class="mark material-icons md-60">sentiment_dissatisfied</i>
+                            <i id="2" class="mark material-icons md-60 selected">sentiment_neutral</i>
+                            <i id="3" class="mark material-icons md-60">sentiment_satisfied</i>
+                            <i id="4" class="mark material-icons md-60">sentiment_very_satisfied</i>
+                        </div>
+                        <button class="button-next-step-feedback">Next <i
+                                class="nopos material-icons md-18 color_white">arrow_forward</i>
+                        </button>
+                    </div>
+                    <div class="step2" style="display: none;">
+                        {% if request.user.get_full_name %}
+                            {% with name=request.user.get_full_name.title %}
+                                <textarea name="explainus"
+                                          placeholder="What do you think about this article {{ name }} ?"
+                                          id="explainus"></textarea>
+                            {% endwith %}
+                        {% else %}
+                            {% with name=request.user.username.title %}
+                                <textarea name="explainus"
+                                          placeholder="What do you think about this article {{ name }} ?"
+                                          id="explainus"></textarea>
+                            {% endwith %}
+                        {% endif %}
+                        <button class="submit-feedback"><i class="nopos material-icons md-18 color_white">check</i>Send
+                        </button>
+                        <button class="button-back-step-feedback"><i class="nopos material-icons md-18 color_white">arrow_back</i>Back
+                        </button>
+                    </div>
+                    <div class="step3" style="display: none">
+                        <i class="valid-icon material-icons">check_circle</i>
+                        <button class="button-back-step-feedback fullw">
+                            Give another feedback.
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bottom in modal-display-poll" tabindex="-1" data-focus-on="input:first" id="display-poll">
+    <div class="modal-stats-poll float-menu-left action-bar-modal"></div>
+    <div class="outside">
+        <div class="modal-dialog modal-dialog-poll">
+            <div class="modal-content modal-content-poll">
+                <div id="container"></div>
+                <div class="modal-body modal-body-poll">
+                    {#  DYNAMIC CONTENT #}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bottom in modal-display-daily-recap" tabindex="-1" data-focus-on="input:first"
+     id="display-daily-recap">
+    <div class="modal-stats-daily-recap float-menu-left action-bar-modal"></div>
+    <div class="outside">
+        <div class="modal-dialog modal-dialog-daily-recap">
+            <div class="modal-content modal-content-daily-recap">
+                <div id="container"></div>
+                <div class="modal-body modal-body-daily-recap">
+                    {# DYNAMIC CONTENT #}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,128 @@
+{% extends "core/base.html" %}
+{% load mptt_tags %}
+
+{% if user.is_authenticated %}
+
+    {% block title %}KB - Daily Recaps{% endblock %}
+
+    {% block side_menu %}
+        <ul id="static-menu" class="menu-side-bar">
+            {% recursetree nodes_static %}
+                <li>
+                    <span id="{{ node.name }}">
+                        <i class="material-icons md-18.width18 link_menu_color">{{ node.icon }}</i>{{ node.name }}
+                    </span>
+                    {% if not nodes_static.is_leaf_node %}
+                        <ul class="children" style="display: none">
+                            {{ children }}
+                        </ul>
+                    {% endif %}
+                    {% if not nodes_static.is_leaf_node %}
+                        <ul class="children">
+                            {{ children }}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endrecursetree %}
+        </ul>
+        <ul id="variable-menu" class="menu-side-bar">
+            {% recursetree nodes_variable %}
+                <li>
+                    <span id="{{ node.name }}">
+                        <i class="material-icons md-18.width18 link_menu_color">{{ node.icon }}</i>{{ node.name }}
+                    </span>
+                    {% if not nodes_static.is_leaf_node %}
+                        <ul class="children" style="display: none">
+                            {{ children }}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endrecursetree %}
+        </ul>
+    {% endblock %}
+
+    {% block search_bar %}
+        <form id="search_bar" method="post" action="{% url 'articles:articles_search_view' %}"
+              class="autocomplete-me">
+            {% csrf_token %}
+            <input class="search_section" id="search_field"
+                   placeholder="Search ..." type="text" id="id_q" name="q">
+            <input type="hidden" value="Search!">
+            {#                    <div class="clear-search-bar"><i class="material-icons color_base" style="position: relative;#}
+            {#                        top:10px">close</i></div>#}
+        </form>
+        <div class="logo"></div>
+    {% endblock %}
+
+    {% block top_menu %}
+        <div class="top-menu-daily-recap">
+            <button class="all-button top-button first" id="all_daily_recaps">
+                    <span class="title-button">
+                        <span class="txt">DAILY RECAPS</span></span>
+            </button>
+            <button class="essentials-button top-button" id="today">
+                    <span class="title-button">
+                        <span class="txt">MOST POPULAR</span></span>
+            </button>
+            <button class="most-popular-button top-button" id="last_7_days">
+                    <span class="title-button">
+                        <span class="txt">NEW</span></span>
+            </button>
+            <button class="new-release-button top-button last" id="unread">
+                    <span class="title-button">
+                        <span class="txt">UNREAD</span></span>
+            </button>
+            <button class="new-release-button top-button last" id="read">
+                    <span class="title-button">
+                        <span class="txt">READ</span></span>
+            </button>
+        </div>
+    {% endblock %}
+
+    {% block feed %}
+        <div class="main-content-daily-recap">
+            <div class="feed">
+                <form method="post">{% csrf_token %}
+                    {% if request.user.is_staff %}
+                        {% load admin_urls %}
+                        <a href="{% url 'admin:article_article_add' %}" class="add-button">Add New Articles<i
+                                class="material-icons md-18 width18 color_base"
+                                style="float: right;top: 1px;">add</i></a>
+                        <a href="{% url 'admin:article_article_changelist' %}" class="add-button">Manage
+                            Articles</a>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    {% endblock %}
+
+
+    {% block modules_home %}
+        {#    FILTER DAILY RECAPS    #}
+        <div class="filter-daily-recaps module card">
+            <div class="module-header">
+                <span class="title-module">FILTER DAILY RECAPS</span>
+            </div>
+            <div class="content-module">
+
+                <div class="footer-module">
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+{% endif %}
+
+{% load staticfiles %}
+
+{% block extrascript %}
+    <script>
+        jQuery(document).ready(function ($) {
+            $('.all-button').css('background', 'rgb(8, 207, 152)').find('.txt').css('color', 'white');
+            window.Manager.getListDailyRecap('any_date');
+            window.Manager.display = 'card';
+        });
+    </script>
+{% endblock %}
+
+

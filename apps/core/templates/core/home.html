@@ -1,0 +1,155 @@
+{% extends "core/base.html" %}
+{% load mptt_tags %}
+
+
+{% if user.is_authenticated %}
+
+    {% block title %}Knowledge Base{% endblock %}
+
+    {% block side_menu %}
+        <ul id="static-menu" class="menu-side-bar">
+            {% recursetree nodes_static %}
+                <li>
+                    <span id="{{ node.name }}" class="category-link">
+                        <i class="material-icons md-18.width18 link_menu_color">{{ node.icon }}</i>{{ node.name }}
+                    </span>
+                    {% if not nodes_static.is_leaf_node %}
+                        <ul class="children">
+                            {{ children }}
+                        </ul>
+                    {% endif %}
+                    {% if not nodes_static.is_leaf_node %}
+                        <ul class="children">
+                            {{ children }}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endrecursetree %}
+        </ul>
+        <ul id="variable-menu" class="menu-side-bar">
+            {% recursetree nodes_variable %}
+                <li>
+                    <span id="{{ node.name }}" class="category-link">
+                        <i class="material-icons md-18.width18 link_menu_color">{{ node.icon }}</i>{{ node.name }}
+                    </span>
+                    {% if not nodes_static.is_leaf_node %}
+                        <ul class="children">
+                            {{ children }}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endrecursetree %}
+        </ul>
+    {% endblock %}
+
+    {% block top_menu %}
+        <div class="top-menu">
+            <div class="front">
+                <button class="all-button top-button first" id="home">
+                    <span class="title-button"><i class="material-icons">language</i>
+                        <span class="txt">ALL</span></span>
+                </button>
+                <button class="essentials-button top-button" id="essentials">
+                    <span class="title-button"><i class="material-icons">explicit</i>
+                        <span class="txt">ESSENTIALS</span></span>
+                </button>
+                <button class="most-popular-button top-button" id="most_popular">
+                    <span class="title-button"><i class="material-icons">star_rate</i>
+                        <span class="txt">MOST POPULAR</span></span>
+                </button>
+                <button class="new-release-button top-button" id="new">
+                    <span class="title-button"><i class="material-icons">new_releases</i>
+                        <span class="txt">NEW RELEASE</span></span>
+                </button>
+                <button class="new-release-button top-button last" id="search">
+                    <span class="title-button"><i class="material-icons">search</i>
+                        </span>
+                </button>
+            </div>
+            <div class="back">
+                <form id="search_bar" method="post" action="{% url 'articles:articles_search_view' %}"
+                      class="autocomplete-me">
+                    {% csrf_token %}
+                    <div class="new-release-button top-button last" id="back_search">
+                    <span class="title-button"><i class="material-icons">arrow_back</i>
+                        </span>
+                    </div>
+                    <input class="search_section" id="search_field"
+                           placeholder="Search ..." type="text" id="id_q" name="q">
+                    <input type="hidden" value="Search!">
+                    <div class="clear-search-bar"><i class="material-icons color_base" style="position: relative;
+                                            top:10px">close</i></div>
+                </form>
+            </div>
+        </div>
+
+    {% endblock %}
+
+    {% block feed %}
+        <div class="main-content">
+            <div class="feed">
+{#                <form method="post">{% csrf_token %}#}
+{#                    {% if request.user.is_staff %}#}
+{#                        {% load admin_urls %}#}
+{#                        <a href="{% url 'admin:article_article_add' %}" class="add-button">Add New Articles<i#}
+{#                                class="material-icons md-18 width18 color_base"#}
+{#                                style="float: right;top: 1px;">add</i></a>#}
+{#                        <a href="{% url 'admin:article_article_changelist' %}" class="add-button">Manage#}
+{#                            Articles</a>#}
+{#                    {% endif %}#}
+{#                </form>#}
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block daily_recap_module %}
+        <div class="content-module">
+            <div class="loading mdl-spinner mdl-js-spinner is-active"></div>
+        </div>
+    {% endblock %}
+
+    {% block survey_module %}
+        <div class="content-module">
+            <div class="loading mdl-spinner mdl-js-spinner is-active"></div>
+        </div>
+    {% endblock %}
+
+    {% block most_popular_articles_module %}
+        <div class="content-module">
+            <div class="mdl-spinner mdl-js-spinner is-active"></div>
+        </div>
+    {% endblock %}
+
+    {% block module_most_popular_tags_module %}
+        <div class="content-module">
+            <div class="mini-daily-recap">
+                <div class="daily-recap-title">Daily recap lorem ipsum iplor at domi</div>
+                <div class="daily-recap-pubdate">20 June 2016</div>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block module_templates_module %}
+        <div class="content-module">
+            <div class="mini-daily-recap">
+                <div class="daily-recap-title">Daily recap lorem ipsum iplor at domi</div>
+                <div class="daily-recap-pubdate">20 June 2016</div>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block most_asked_questions_module %}
+        <div class="content-module">
+            <div class="mini-daily-recap">
+                <div class="daily-recap-title">Daily recap lorem ipsum iplor at domi</div>
+                <div class="daily-recap-pubdate">20 June 2016</div>
+            </div>
+        </div>
+    {% endblock %}
+
+{% endif %}
+
+
+
+
+

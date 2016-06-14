@@ -1,0 +1,34 @@
+.login-form {
+    width: 350px;
+    margin: auto;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.login-form table {
+    width: 100%;
+}
+
+.login-form input {
+    border: 0;
+    border-bottom: 1px solid rgba(0,0,0,.15);
+    margin: 10px auto;
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+    height: 35px;
+    font-size: 14px;
+    outline: 0;
+}
+
+.login-form input[type="submit"] {
+    border: 1px solid #02b875;
+    color: #00ab6b;
+    background: white;
+    border-radius: 999em;
+}

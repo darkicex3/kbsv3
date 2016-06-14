@@ -1,0 +1,94 @@
+@media only screen and (max-width: 980px) {
+    .top-menu, .top-menu-daily-recap {
+        width: 100%;
+        height: 300px;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .front {
+        flex-direction: column;
+    }
+
+    .top-button {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        width: 100%;
+    }
+
+    .main-content {
+        height: auto;
+        padding: 0;
+    }
+
+    .modal-dialog, .outside {
+        width: 100%;
+    }
+
+    .question-poll {
+        width: 100%;
+    }
+
+    .modules {
+        margin-right: 0;
+        border-left: none;
+        padding-left: 0;
+    }
+
+    .feed {
+        height: 100% !important;
+    }
+
+    .nav-wrapper {
+        width: 100%;
+        background: #252525;
+        height: 100%;
+        display: none;
+    }
+
+    .counter-wrapper {
+        font-size: 14pt;
+    }
+
+    .icon-mini-article {
+        font-size: 16pt;
+        margin-right: 5px;
+    }
+
+    .app {
+        padding: 65px 20px 20px 20px;
+    }
+
+    .mini-article, .mini-daily-recap-card {
+        margin: 10px 0;
+    }
+
+    .card-header {
+        font-size: 15pt;
+        line-height: 1.5;
+    }
+
+    .menu {
+        width: 100%;
+    }
+
+    .menu li {
+        flex-direction: column;
+    }
+
+    .children {
+        width: 100%;
+        position: relative;
+        left: 29px;
+        border-left: 5px #5d5d5d solid;
+        background: transparent;
+    }
+}
+
+@media only screen and (max-width: 1025px) {
+
+}

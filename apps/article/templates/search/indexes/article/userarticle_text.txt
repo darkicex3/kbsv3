@@ -1,0 +1,8 @@
+{{ objects.user_id }}
+{{ objects.article_id }}
+{{ objects.viewed }}
+{{ objects.searched }}
+{{ objects.favorite }}
+{{ object.date_visited }}
+{{ object.date_added }}
+{{ object.date_viewed }}

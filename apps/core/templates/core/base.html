@@ -1,0 +1,347 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang=""> <!--<![endif]-->
+
+<head>
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {#    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">#}
+    {#    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">#}
+    {#    <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>#}
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans+Caption:400,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,300' rel='stylesheet' type='text/css'>
+    <link href="{% static 'core/css/vendor/pace.css' %}" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="{% static 'core/css/vendor/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <link rel="stylesheet" href="{% static 'core/css/vendor/jquery.webui-popover.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/vendor/perfect-scrollbar.min.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/vendor/text_layer_builder.css' %}">
+
+    <link rel="stylesheet" href="{% static 'core/css/proper.css' %}">
+    {# <link rel="stylesheet" href="{% static 'core/css/proper-mobile.css' %}"> #}
+    <link rel="stylesheet" href="{% static 'core/css/proper-responsive.css' %}">
+
+    <title>Teledirect - {% block title %}{% endblock %}</title>
+</head>
+<body>
+<!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+{% include "core/modal.html" %}
+
+<div class="nav-wrapper">
+    <div class="menu" id="menu">
+        {% block side_menu %}
+            <ul id="static-menu" class="menu-side-bar"></ul>
+            <ul id="variable-menu" class="menu-side-bar"></ul>
+        {% endblock %}
+        <div class="copyright static">
+            <form method="post">{% csrf_token %}
+                {% if request.user.is_staff %}
+                    <a href="{% url 'admin:article_category_add' %}" class="add-button">Add Shortcut<i
+                            class="add-logo material-icons md-18 width18 color_base">add</i></a>
+                    <a href="{% url 'admin:article_category_changelist' %}" class="add-button">Manage
+                        Shortcuts</a>
+                {% endif %}
+            </form>
+            <div class="legal">
+                <span>©2016 Teledirect Pte Ltd</span><br>
+                <a href="#">Terms & Privacy</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="header">
+    <div class="profile">
+        {% block profile %}
+            <div class="user_profile">
+                <form class="form-base" method="post">{% csrf_token %}
+                    {% if request.user.is_superuser %}
+                        <a class="user-profile-link" href="{% url 'admin:auth_user_change' request.user.id %}">
+                            <div id="img_profile"></div>
+                        </a>
+                    {% elif request.user.is_staff %}
+                        <a class="user-profile-link" href="{% url 'admin:auth_user_change' request.user.id %}">
+                            <div id="img_profile"></div>
+                        </a>
+                    {% else %}
+                        <div id="img_profile"></div>
+                    {% endif %}
+                </form>
+                <form class="form-admin" method="post">{% csrf_token %}
+                    {% if request.user.is_superuser or request.user.is_staff %}
+                        <span class="material-icons margin-header">
+                           <a class="admin-link" href="{% url 'admin:index' %}"><i
+                                   class="material-icons header-icon">timeline</i></a>
+                        </span>
+                        <span class="material-icons margin-header">
+                        <a class="admin-link" href="{% url 'admin:index' %}"><i
+                                class="material-icons header-icon">dvr</i></a>
+                        </span>
+                    {% endif %}
+                </form>
+                {#                <span class="material-icons margin-header">#}
+                {#                    <a class="admin-link" href="#">#}
+                {#                        <i class="material-icons header-icon">help</i>#}
+                {#                    </a>#}
+                {#                </span>#}
+                {#                <span class="material-icons margin-header settings-header">#}
+                {#                    <a class="admin-link" href="#">#}
+                {#                        <i class="material-icons header-icon">settings</i>#}
+                {#                    </a>#}
+                {#                </span>#}
+                <span class="material-icons margin-header">
+                    <a class="admin-link" href="#">
+                        <i class="material-icons header-icon">notifications</i>
+                    </a>
+                </span>
+                <span class="material-icons margin-header">
+                    <a class="admin-link" href="http://127.0.0.1:8000">
+                        <i class="material-icons header-icon">home</i>
+                    </a>
+                </span>
+                <span class="material-icons margin-header">
+                    <a class="admin-link" href="{% url 'registration:logout' %}">
+                        <i class="material-icons header-icon">power_settings_new</i>
+                    </a>
+                </span>
+            </div>
+        {% endblock %}
+    </div>
+    <div class="logo"></div>
+    <div class="menu-button" id="menu">
+                    <span class="title-button"><i class="menu-icon material-icons">menu</i>
+                        <span class="txt">Home</span></span>
+    </div>
+</div>
+
+<div class="app">
+    <div class="feed">
+        {% block top_menu %}
+
+        {% endblock %}
+
+        {% block feed %}
+
+        {% endblock %}
+    </div>
+
+
+    <div class="modules">
+        {% block modules_home %}
+            {#   DAILY RECAPS   #}
+            <div class="daily-recap-module module card">
+                <div class="module-header">
+                    <span class="title-module">DAILY RECAPS</span>
+                    <form class="form-admin" method="post">{% csrf_token %}
+                        {% if request.user.is_superuser or request.user.is_staff %}
+                            {% load admin_urls %}
+                            <a class="module-icons" href="{% url 'admin:article_dailyrecap_changelist' %}"><i
+                                    class="material-icons color-base material-icons edit-icon margin-icon">edit</i></a>
+                            <a class="module-icons" href="{% url 'admin:article_dailyrecap_add' %}"><i
+                                    class="material-icons color-base material-icons margin-icon">add</i></a>
+                        {% endif %}
+                    </form>
+                    <button id="daily-fltr"
+                            class="mdl-button mdl-js-button mdl-button--icon" style="color: #C2C2CA;">
+                        <a><i class="color-base material-icons">sort</i></a>
+                    </button>
+
+                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                        for="daily-fltr">
+                        <li id="" class="mdl-menu__item any_date">All</li>
+                        <li id="" class="mdl-menu__item today">Today</li>
+                        <li id="" class="mdl-menu__item past_7_days">Past 7 days</li>
+                        <li id="" class="mdl-menu__item this_month">This month</li>
+                        {#                        <li class="mdl-menu__item this_year_p">This years</li>#}
+                    </ul>
+                </div>
+                {% block daily_recap_module %}
+
+                {% endblock %}
+                <div class="footer-module">
+                    <a class="more_daily_recap" href="{% url 'core:daily_recap' %}">more daily recap ...</a>
+                </div>
+            </div>
+
+
+
+            {#   MOST POPULAR SURVEY   #}
+            <div class="survey-module module card">
+                <div class="module-header">
+                    <span class="title-module">SURVEY</span>
+                    <form class="form-admin" method="post">{% csrf_token %}
+                        {% if request.user.is_superuser or request.user.is_staff %}
+                            {% load admin_urls %}
+                            <a class="module-icons" href="{% url 'admin:poll_poll_changelist' %}"><i
+                                    class="material-icons color-base material-icons edit-icon margin-icon">edit</i></a>
+                            <a class="module-icons" href="{% url 'admin:poll_poll_add' %}"><i
+                                    class="material-icons color-base material-icons margin-icon">add</i></a>
+                        {% endif %}
+                    </form>
+                    <button id="survey-fltr"
+                            class="mdl-button mdl-js-button mdl-button--icon" style="color: #C2C2CA;">
+                        <a><i class="color-base material-icons">sort</i></a>
+                    </button>
+
+                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                        for="survey-fltr">
+                        <li id="" class="mdl-menu__item any_date_p">All</li>
+                        <li id="" class="mdl-menu__item today_p">Today</li>
+                        <li id="" class="mdl-menu__item past_7_days_p">Past 7 days</li>
+                        <li id="" class="mdl-menu__item this_month_p">This month</li>
+                        {#                        <li class="mdl-menu__item this_year_p">This years</li>#}
+                    </ul>
+                </div>
+                {% block survey_module %}
+
+                {% endblock %}
+                <div class="footer-module">
+                    <a href="#">more survey ...</a>
+                </div>
+            </div>
+
+
+
+            {#   MOST POPULAR ARTICLES   #}
+            <div class="most-popular-articles-module module card" style="display: none">
+                <div class="module-header">
+                    <span class="title-module">MOST POPULAR ARTICLE</span>
+                    <i class="color-base material-icons">sort</i>
+                </div>
+                {% block most_popular_articles_module %}
+
+                {% endblock %}
+                <div class="footer-module">
+                    <a href="#">more popular articles ...</a>
+                </div>
+            </div>
+
+            {#    POPULAR TAGS    #}
+            <div class="most-popular-tags-module module card" style="">
+                <div class="module-header">
+                    <span class="title-module">MOST POPULAR TAGS</span>
+                    <i class="color-base material-icons">sort</i>
+                </div>
+                {% block module_most_popular_tags_module %}
+
+                {% endblock %}
+                <div class="footer-module">
+                    <a href="#">more popular tags ...</a>
+                </div>
+            </div>
+
+            {#    TEMPLATES    #}
+            <div class="module_templates module card" style="display: none">
+                <div class="module-header">
+                    <span class="title-module">TEMPLATES</span>
+                    <i class="color-base material-icons edit-icon margin-icon">edit</i>
+                    <i class="color-base material-icons margin-icon">add</i>
+                </div>
+                {% block module_templates_module %}
+
+                {% endblock %}
+                <div class="footer-module">
+                    <a href="#">more popular tags ...</a>
+                </div>
+            </div>
+
+            {#    MOST ASKED QUESTIONS    #}
+            <div class="most_asked_questions module card" style="display: none">
+                <div class="module-header">
+                    <span class="title-module">MOST ASKED QUESTIONS</span>
+                </div>
+                {% block most_asked_questions_module %}
+
+                {% endblock %}
+                <div class="footer-module">
+                    <a href="#">more most asked questions ...</a>
+                </div>
+            </div>
+        {% endblock %}
+        <div class="chat-box"><i class="color-base material-icons">comment</i></div>
+    </div>
+</div>
+
+{% load staticfiles %}
+
+<script>
+    GET_POPULAR_TAGS_VIEW = "{% url 'articles:get_popular_tags_view' %}";
+    JS = "{% static 'core/js/vendor/animation/material.min.js' %}";
+    USEFUL_MANAGER_DR = "{% url 'articles:set_useful_daily_recap' %}";
+    READ_MANAGER_DR = "{% url 'articles:set_read_daily_recap' %}";
+    SHOW_DAILY_RECAP = "{% url 'articles:show_daily_recap' %}";
+    GET_DAILY_RECAP = "{% url 'articles:get_daily_recap' %}";
+    URL_AUTO_COMPLETE = "{% url 'articles:articles_search_view'                     %}"; //TODO
+    GET_SORTING_METHODS = "{% url 'articles:get_sorting_methods_view'                 %}"; //TODO
+    SEARCH_MANAGER = "{% url 'articles:set_searched_view'                        %}"; //TODO
+    GET_POLLS = "{% url 'articles:get_polls_view'                           %}"; //TODO
+    SHOW_POLL = "{% url 'articles:get_polls_view'                           %}";
+    W_O_R = "{% url 'articles:wrong_or_right'                           %}";
+    SORT_ARTICLES = "{% url 'articles:sort_article_view'                        %}"; //TODO
+    SEND_FEEDBACK = "{% url 'articles:send_feedback' %}";
+    TAGS_COUNTER_INCREMENT = "{% url 'articles:tags_counter_increment' %}"; //TODO
+    BIGUP_MANAGER = "{% url 'articles:set_useful_view'                          %}"; //OK
+    LIKE_MANAGER = "{% url 'articles:set_liked_view'                           %}"; //OK
+    READ_MANAGER = "{% url 'articles:set_read_view'                            %}"; //OK
+    VIEW_MANAGER = "{% url 'articles:set_visited_view'                            %}"; //OK
+    GET_LIST_ARTICLES = "{% url 'articles:get_article_by_static_shortcuts'          %}"; //OK
+    GET_CATEGORIES = "{% url 'articles:get_categories_view'                      %}"; //OK
+    GET_ARTICLES_FROM_SHORTCUT = "{% url 'articles:show_article_from_shorcuts'               %}"; //OK
+    GET_ARTICLE = "{% url 'articles:ShowArticle'                              %}"; //OK
+    GET_SHORTCUTS = "{% url 'contents:manage_sidebar_shortcuts_showing_view'    %}"; //OK
+    GET_ATTACHMENTS = "{% url 'articles:get_attachments_view'    %}"; //OK
+    GET_CURRENT_QUESTION = "{% url 'polls:get_current_question'    %}"; //OK
+
+    {#    ADD_ARTICLE_TO_SHORTCUT             =   "{% url 'articles:add_article_to_shortcut' %}";#}
+    {#    CREATE_SHORTCUT                     =   "{% url 'articles:create_shortcut' %}";#}
+    {#    EDIT_SHORTCUTS                      =   "{% url 'contents:manage_sidebar_shortcuts_editing_view' %}";#}
+    {#    INSERT_SHORTCUTS                    =   "{% url 'contents:manage_sidebar_shortcuts_inserting_view' %}";#}
+</script>
+
+<script type="text/javascript" src="{% static 'core/js/vendor/pdf/pdf.js' %}"></script>
+<script type="text/javascript">
+    PDFJS.workerSrc = "{% static 'core/js/vendor/pdf/pdf.worker.js' %}";
+</script>
+
+<script src="{% static 'core/js/vendor/jquery-1.12.3.min.js' %}"></script>
+{#<script src="{% static 'core/js/other/aa.js' %}"></script>#}
+<script src="{% static 'core/js/vendor/bootstrap/jquery-ui.min.js' %}"></script>
+<script src="{% static 'core/js/vendor/reading/readingTime.js' %}"></script>
+<script src="{% static 'core/js/vendor/popover/jquery.webui-popover.min.js' %}"></script>
+<script src="{% static 'core/js/vendor/bootstrap/bootstrap.min.js' %}"></script>
+<script src="{% static 'core/js/vendor/scrollbar/perfect-scrollbar.jquery.min.js' %}"></script>
+<script src="{% static 'core/js/vendor/animation/jquery.flip.min.js' %}"></script>
+<script src="{% static 'core/js/vendor/animation/jquery.transit.min.js' %}"></script>
+<script src="{% static 'core/js/search/autocomplete.js' %}"></script>
+
+<script src="{% static 'core/js/manager/render.js' %}"></script>
+<script src="{% static 'core/js/manager/poll.js' %}"></script>
+<script src="{% static 'core/js/manager/dailyrecap.js' %}"></script>
+<script src="{% static 'core/js/manager/article.js' %}"></script>
+<script src="{% static 'core/js/manager/manager.js' %}"></script>
+
+<script src="{% static 'core/js/other/get_cookies.js' %}"></script>
+<script src="{% static 'core/js/other/animation.js' %}"></script>
+
+<script src="{% static 'core/js/main.js' %}"></script>
+
+
+{% block extrascript %}
+{% endblock %}
+
+</body>
+</html>

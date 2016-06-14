@@ -1,0 +1,33 @@
+{% extends "registration/base.html" %}
+
+{% block content %}
+
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+    {% else %}
+    <p>Please login to see this page.</p>
+    {% endif %}
+{% endif %}
+
+<form method="post" class="login-form" action="{% url 'registration:login' %}">
+{% csrf_token %}
+<table>
+<tr>
+    <td><input id="id_username" maxlength="254" name="username" type="text" placeholder="Username" autocomplete="off"></td>
+</tr>
+<tr>
+    <td><input id="id_password" name="password" type="password" placeholder="Password" autocomplete="off"></td>
+</tr>
+</table>
+
+<input type="submit" value="Sign In" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+{% endblock %}

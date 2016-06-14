@@ -1,0 +1,9 @@
+.submit-row a.deletelink, #header, #header * {
+    -moz-box-sizing: initial !important;
+    box-sizing: initial !important;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: inherit;
+    line-height: inherit;
+}

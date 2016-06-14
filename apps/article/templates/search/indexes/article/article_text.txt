@@ -1,0 +1,5 @@
+{{ object.title }}
+{{ object.author }}
+{{ object.content }}
+{{ object.publish_date }}
+{{ object.expiration_date }}
