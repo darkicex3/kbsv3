@@ -98,7 +98,6 @@ var ArticleManager = function (options) {
             },
             success: function (data) {
                 results_polls(data);
-                Pace.restart();
             },
             error: function () {
                 $(results_poll_selector).empty().append('<i class="error_xhr material-icons">flash_off</i>');
@@ -119,7 +118,6 @@ var ArticleManager = function (options) {
             },
             success: function (data) {
                 results_daily_recap(data);
-                Pace.restart();
             }
         });
     };
@@ -139,7 +137,6 @@ var ArticleManager = function (options) {
             },
             success: function (data) {
                 results(data);
-                Pace.restart();
             }
         });
     };

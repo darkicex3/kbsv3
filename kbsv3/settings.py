@@ -41,6 +41,11 @@ sys.path.append(APPS_DIR)
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_HTTPONLY = True
+SECURE_HSTS_SECONDS = 0
+SECURE_CONTENT_TYPE_NOSNIFF = 0
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_SSL_REDIRECT = True
+X_FRAME_OPTIONS = 'DENY'
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '104.199.154.36', 'cuscom.xyz', '*.cuscom.xyz']
 
 # Local time zone for this installation. Choices can be found here:
