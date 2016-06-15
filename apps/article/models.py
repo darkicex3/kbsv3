@@ -113,7 +113,7 @@ class Article(models.Model):
     file_content_option = models.BooleanField(default=False, help_text=help_option_content)
     url_content_option = models.BooleanField(default=False, help_text=help_option_url)
     url_article = models.CharField(max_length=255, default='', blank=True)
-    file_content = models.FileField(upload_to='article_pdf/%Y/%m/%d',
+    file_content = models.FileField(upload_to='article_pdf',
                                     blank=True)
     publish_date = models.DateTimeField(help_text=publish_date_help, auto_now_add=True, editable=False)
     modified = models.DateTimeField(editable=False)
