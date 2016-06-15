@@ -11,6 +11,16 @@ from apps import registration
 
 DEBUG = False
 
+
+def _is_secure(self, request):
+    if request.is_secure():
+        return True
+
+    if 'HTTP_X_SSL_PROTOCOL' in request.META:
+        return True
+
+    return False
+
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
@@ -46,7 +56,7 @@ SECURE_CONTENT_TYPE_NOSNIFF = 0
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_SSL_REDIRECT = False
 X_FRAME_OPTIONS = 'DENY'
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '104.199.154.36', 'cuscom.xyz', '*.cuscom.xyz']
+ALLOWED_HOSTS = ['*']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
