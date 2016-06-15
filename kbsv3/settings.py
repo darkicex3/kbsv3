@@ -49,7 +49,7 @@ sys.path.append(APPS_DIR)
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 
 CSRF_COOKIE_SECURE = False
-SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_HTTPONLY = True
 SECURE_HSTS_SECONDS = 0
 SECURE_CONTENT_TYPE_NOSNIFF = 0
