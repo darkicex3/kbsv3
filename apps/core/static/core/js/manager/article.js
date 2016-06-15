@@ -153,7 +153,6 @@ var Article = function (id, element) {
             {'id': id},
             function (data) {
                 results(data);
-                Pace.restart();
                 var article = $('.content-article');
 
                 article.readingTime({

@@ -74,7 +74,6 @@ var DailyRecap = function (id, element) {
             {'id': id},
             function (data) {
                 results(data);
-                Pace.restart();
                 var dailyrecap = $('.content-daily-recap');
 
                 dailyrecap.readingTime({
