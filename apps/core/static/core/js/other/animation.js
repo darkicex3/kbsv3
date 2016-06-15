@@ -159,7 +159,7 @@ function on_mouseover_li_show_children() {
 
     if (!window.is_mobile) {
         $('body').on({
-            mouseenter: function () {
+            mouseenter: function (event) {
                 if ($(this).children('.children').children('li').length > 0) {
                     event.stopPropagation();
                     nav_wrapper.css('width', '468px');
@@ -169,7 +169,7 @@ function on_mouseover_li_show_children() {
                     console.log('NAV WRAPPER :', nav_wrapper.width(), ' CHILDREN :', $(this).children('.children').width(), ' CHILDREN :', $('.menu').width());
                 }
             },
-            mouseleave: function () {
+            mouseleave: function (event) {
                 event.stopPropagation();
                 nav_wrapper.removeAttr('style').show();
                 $(this).removeAttr('style').children('.children').css('left', '0').css('display', 'none');
