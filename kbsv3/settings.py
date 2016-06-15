@@ -48,7 +48,7 @@ sys.path.append(APPS_DIR)
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 
-CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = False
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_HTTPONLY = True
 SECURE_HSTS_SECONDS = 0
