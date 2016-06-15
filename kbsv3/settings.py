@@ -12,14 +12,14 @@ from apps import registration
 DEBUG = False
 
 
-def _is_secure(self, request):
-    if request.is_secure():
-        return True
-
-    if 'HTTP_X_SSL_PROTOCOL' in request.META:
-        return True
-
-    return False
+# def _is_secure(self, request):
+#     if request.is_secure():
+#         return True
+#
+#     if 'HTTP_X_SSL_PROTOCOL' in request.META:
+#         return True
+#
+#     return False
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
