@@ -56,7 +56,7 @@ SECURE_CONTENT_TYPE_NOSNIFF = 0
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_SSL_REDIRECT = False
 X_FRAME_OPTIONS = 'DENY'
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '104.199.154.36', 'cuscom.xyz', '.cuscom.xyz', 'kb.teledirectasia.com',
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '104.199.154.36', 'kb.cuscom.xyz', '.kb.cuscom.xyz', 'kb.teledirectasia.com',
                  '.kb.teledirectasia.com']
 
 # Local time zone for this installation. Choices can be found here:
