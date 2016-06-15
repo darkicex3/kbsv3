@@ -9,7 +9,7 @@ from urllib.parse import urlparse
 
 from apps import registration
 
-DEBUG = True
+DEBUG = False
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -37,7 +37,11 @@ sys.path.append(APPS_DIR)
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_HTTPONLY = True
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '104.199.154.36', 'cuscom.xyz', '*.cuscom.xyz']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -108,8 +112,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 )
 
 TEMPLATES = [
