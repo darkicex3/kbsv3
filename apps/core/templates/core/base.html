@@ -3,11 +3,10 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!-->
-{% load static from staticfiles %}
-
 <html class="no-js" lang=""> <!--<![endif]-->
 
 <head>
+    {% load staticfiles %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="description" content="">
@@ -272,8 +271,11 @@
     </div>
 </div>
 
+{% load staticfiles %}
+
 <script>
     GET_POPULAR_TAGS_VIEW = "{% url 'articles:get_popular_tags_view' %}";
+    JS = "{% static 'core/js/vendor/animation/material.min.js' %}";
     USEFUL_MANAGER_DR = "{% url 'articles:set_useful_daily_recap' %}";
     READ_MANAGER_DR = "{% url 'articles:set_read_daily_recap' %}";
     SHOW_DAILY_RECAP = "{% url 'articles:show_daily_recap' %}";
@@ -311,7 +313,6 @@
 </script>
 
 <script src="{% static 'core/js/vendor/jquery-1.12.3.min.js' %}"></script>
-{#<script src="{% static 'core/js/other/aa.js' %}"></script>#}
 <script src="{% static 'core/js/vendor/bootstrap/jquery-ui.min.js' %}"></script>
 <script src="{% static 'core/js/vendor/reading/readingTime.js' %}"></script>
 <script src="{% static 'core/js/vendor/popover/jquery.webui-popover.min.js' %}"></script>
