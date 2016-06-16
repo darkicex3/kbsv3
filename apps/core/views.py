@@ -113,12 +113,9 @@ class GetTenantStyle(View):
         pr_color = self.request.tenant.primary_color
         sc_color = self.request.tenant.secondary_color
 
-        if self.request.tenant.logo.url:
-            img = self.request.tenant.logo.url
-        else:
-            img = ''
+        # img = self.request.tenant.logo.url
 
-        context.update({'primary_color': pr_color, 'secondary_color': sc_color, 'img': img})
+        context.update({'primary_color': pr_color, 'secondary_color': sc_color, 'img': 'img'})
 
         return JsonResponse(context)
 
