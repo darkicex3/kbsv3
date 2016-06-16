@@ -181,7 +181,7 @@ WSGI_APPLICATION = 'kbsv3.wsgi.application'
 SHARED_APPS = (
     'tenant_schemas',  # mandatory
     'apps.core.apps.CoreConfig',
-    'storages'
+    'storages',
 
     'django.contrib.auth',
     'django.contrib.contenttypes',
