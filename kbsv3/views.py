@@ -3,6 +3,7 @@ from django.conf import settings
 from django.db import utils
 from django.views.generic import TemplateView
 from tenant_schemas.utils import remove_www
+from django.contrib.auth.decorators import login_required
 
 
 @login_required
