@@ -89,7 +89,6 @@ $(document).ready(function () {
 });
 
 function initColors(color) {
-    $('#static-menu').attr('style','border-bottom:'+ color + ' 1px solid !important');
     $('.daily-recap-pubdate').attr('style','background-color:' + color + ' !important');
     $('.schedule-txt').attr('style','background-color:'+ color+ ' !important');
     $('.favorite').attr('style','color:'+ color+ '!important');
