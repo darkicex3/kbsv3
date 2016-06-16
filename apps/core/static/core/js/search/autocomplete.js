@@ -88,13 +88,13 @@ $(document).ready(function () {
     window.autocomplete.setup();
 });
 
-function initColors(color) {
-    $('.daily-recap-pubdate').attr('style','background-color:' + color + ' !important');
-    $('.schedule-txt').attr('style','background-color:'+ color+ ' !important');
-    $('.favorite').attr('style','color:'+ color+ '!important');
-    $('.material-icons.selected').attr('style','color:'+ color+ ' !important');
-    $('.nextq').attr('style','background:'+ color+ ' !important');
-    $('.header_poll').attr('style','background:'+ color+ ' !important');
-    $('.completed_survey').attr('style','color:'+ color+ ' !important');
-    $('.color_favorites').attr('style','color:'+ color+ ' !important');
+function initColors(primaryColor, secondaryColor, imgUrl) {
+    $('.daily-recap-pubdate').attr('style','background-color:' + primaryColor + ' !important');
+    $('.schedule-txt').attr('style','background-color:'+ primaryColor + ' !important');
+    $('.favorite').attr('style','color:'+ primaryColor+ '!important');
+    $('.material-icons.selected').attr('style','color:'+ secondaryColor+ ' !important');
+    $('.nextq').attr('style','background:'+ secondaryColor+ ' !important');
+    $('.header_poll').attr('style','background:'+ primaryColor+ ' !important');
+    $('.completed_survey').attr('style','color:'+ secondaryColor+ ' !important');
+    $('.color_favorites').attr('style','color:'+ primaryColor+ ' !important');
 };

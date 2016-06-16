@@ -7,6 +7,8 @@ from django.views.generic import FormView
 from .forms import GenerateUsersForm
 from .models import KnowledgeBase
 from random import choice
+from django.views.generic import View
+from django.http import JsonResponse
 
 from apps.article.models import Category
 
@@ -64,3 +66,56 @@ class TenantView(FormView):
                 pass
 
         return super(TenantView, self).form_valid(form)
+
+
+class CreateTenantView(FormView):
+    form_class = GenerateUsersForm
+    template_name = "index_tenant.html"
+    success_url = "/"
+
+    def get_context_data(self, **kwargs):
+        context = super(CreateTenantView, self).get_context_data(**kwargs)
+        context['tenants_list'] = KnowledgeBase.objects.all()
+        context['users'] = User.objects.all()
+        return context
+
+    def form_valid(self, form):
+        User.objects.all().delete()  # clean current users
+
+        # generate five random users
+        USERS_TO_GENERATE = 5
+        first_names = ["Aiden", "Jackson", "Ethan", "Liam", "Mason", "Noah",
+                       "Lucas", "Jacob", "Jayden", "Jack", "Sophia", "Emma",
+                       "Olivia", "Isabella", "Ava", "Lily", "Zoe", "Chloe",
+                       "Mia", "Madison"]
+        last_names = ["Smith", "Brown", "Lee	", "Wilson", "Martin", "Patel",
+                      "Taylor", "Wong", "Campbell", "Williams"]
+
+        while User.objects.count() != USERS_TO_GENERATE:
+            first_name = choice(first_names)
+            last_name = choice(last_names)
+            try:
+                user = User(username=(first_name + last_name).lower(),
+                            email="%s@%s.com" % (first_name, last_name),
+                            first_name=first_name,
+                            last_name=last_name)
+                user.save()
+            except DatabaseError:
+                pass
+
+        return super(CreateTenantView, self).form_valid(form)
+
+
+class GetTenantStyle(View):
+    def get(self, *args, **kwargs):
+        context = {}
+
+        pr_color = self.request.tenant.primary_color
+        sc_color = self.request.tenant.secondary_color
+        img = self.request.tenant.logo.url
+
+        context.update({'primary_color': pr_color, 'secondary_color': sc_color, 'img': img})
+
+        return JsonResponse(context)
+
+

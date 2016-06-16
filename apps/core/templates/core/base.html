@@ -34,9 +34,6 @@
     <![endif]-->
 
 {% include "core/modal.html" %}
-<div class="master_style">
-    {{ request.tenant.domain_url }}
-</div>
 <div class="nav-wrapper">
     <div class="menu" id="menu">
         {% block side_menu %}
@@ -274,6 +271,7 @@
 </div>
 
 <script>
+    GET_TENANT_STYLE = "{% url 'core:get_tenant_style' %}";
     GET_POPULAR_TAGS_VIEW = "{% url 'articles:get_popular_tags_view' %}";
     JS = "{% static 'core/js/vendor/animation/material.min.js' %}";
     USEFUL_MANAGER_DR = "{% url 'articles:set_useful_daily_recap' %}";

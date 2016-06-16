@@ -27,16 +27,34 @@ var ArticleManager = function (options) {
     this.autoquery = null;
     this.autocomplete = false;
     this.sorting = 'publish_date';
-    var colorKB = '';
+    var primary_color = '';
+    var secondary_color = '';
+    var img_url = '';
 
     this.setColorKB = function (color) {
-        colorKB = color;
+        $.ajax({
+            url: GET_TENANT_STYLE,
+            data: {},
+            success: function (data) {
+                primary_color = data['primary_color'];
+                secondary_color = data['secondary_color'];
+                img_url = data['img'];
+            }
+        });
     };
 
-    this.getColorKB = function () {
-        return colorKB;
+    this.getPrimaryColor = function () {
+        return primary_color;
     };
-    
+
+    this.getSecondaryColor = function () {
+        return secondary_color;
+    };
+
+    this.getImgUrl = function () {
+        return img_url;
+    };
+
     this.getListArticle = function (category, tags, sorting, counter, autocomplete, autoquery) {
         query(category || this.category, tags, counter || this.counter, sorting || this.sorting,
             autocomplete || this.autocomplete, autoquery || this.autoquery);
@@ -290,7 +308,6 @@ var ArticleManager = function (options) {
             object.attr('id', " ");
 
 
-
         // SEARCH
         if (object.attr('id').indexOf('search') >= 0)
             window.Manager.getSearchSuggestions();
@@ -472,7 +489,7 @@ var ArticleManager = function (options) {
     var list_polls = function (poll_id, poll_title, nb_questions, current_question) {
         return '<div class="mini-survey" id="' + poll_id + '">' +
             '<a data-toggle="modal" class="link-poll survey-title" href="#display-poll">' + poll_title + '</a>' +
-            '<div class="nb_questions_completed '+(current_question == nb_questions ? 'completed_survey' : '')+'">'+current_question+'/'+nb_questions+'</div>' +
+            '<div class="nb_questions_completed ' + (current_question == nb_questions ? 'completed_survey' : '') + '">' + current_question + '/' + nb_questions + '</div>' +
             '</div>';
     };
 
@@ -532,7 +549,7 @@ var ArticleManager = function (options) {
             '<div class="card-header padding"><a data-toggle="modal" href="' + href + '" target="' + redirect + '" class="padding-bottom-list ' + classattr + '">' + title + '</a></div>' +
             '<div class="card-stat">' +
             '<div class="like-wrapper stat-wrapper">' +
-            '<i id="like-icon" class="color-base material-icons icon-mini-article '+liked_attr+'">favorites</i>' +
+            '<i id="like-icon" class="color-base material-icons icon-mini-article ' + liked_attr + '">favorites</i>' +
             '<span id="like-counter" class="counter-wrapper">' + favorite_counter + '</span>' +
             '</div>' +
             '<div class="bigup-wrapper stat-wrapper">' +
