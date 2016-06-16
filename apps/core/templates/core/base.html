@@ -40,7 +40,7 @@
 <div class="nav-wrapper">
     <div class="menu" id="menu">
         {% block side_menu %}
-            <ul id="static-menu" class="menu-side-bar"></ul>
+            <ul id="static-menu" class="menu-side-bar" style="border-bottom: {{ request.tenant.secondary_color }} 1px solid !important;"></ul>
             <ul id="variable-menu" class="menu-side-bar"></ul>
         {% endblock %}
         <div class="copyright static">
@@ -54,7 +54,7 @@
             </form>
             <div class="legal">
                 <span>©2016 Teledirect Pte Ltd</span><br>
-                <a href="#">Terms & Privacy</a>
+                <a style="color: {{ request.tenant.secondary_color }};" href="#">Terms & Privacy</a>
             </div>
         </div>
 
@@ -170,7 +170,7 @@
 
                 {% endblock %}
                 <div class="footer-module">
-                    <a class="more_daily_recap" href="{% url 'core:daily_recap' %}">more daily recap ...</a>
+                    <a style="color:{{ request.tenant.secondary_color }};" class="more_daily_recap" href="{% url 'core:daily_recap' %}">more daily recap ...</a>
                 </div>
             </div>
 
