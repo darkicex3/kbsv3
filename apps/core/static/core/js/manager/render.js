@@ -34,73 +34,73 @@ function resize_module() {
     $('.module').css('height', moduleheight - 15);
 }
 
-// function render_article() {
-//     var article_content = $('.modal-content-article');
-//     var article = $('.article');
-//     var counter = 0;
-//     var glossary = '<div class="glossary-header">Glossary<i class="material-icons">library_books</i></div><a class="link-glossary top-article">Header</a>';
-//     var current_title = '';
-//
-//     $('.content-article').find('*').each(function () {
-//         $(this).removeAttr('style');
-//     });
-//
-//     article_content.find('*').each(function () {
-//         var element = $(this);
-//
-//         if (element.width() > element.parent().width()) {
-//             element.css('width', '100%').css('height', 'auto');
-//         }
-//
-//         if (((element.prev().is('p') || element.prev().is('div')) && (element.prev().html() == '<br>' || element.html() == '<br />'))
-//             && ((element.is('p') || element.is('div')) && (element.html() == '<br>' || element.html() == '<br />'))) {
-//             element.remove();
-//         }
-//
-//         if ((element.prev().is('h1') || element.prev().is('h2') || element.prev().is('h3') || element.prev().is('h4')
-//             || element.prev().is('h5') || element.prev().is('h6')) && ((element.html() == '<br>') && (element.is('p') || element.is('div')))) {
-//             element.remove();
-//         }
-//
-//         if (element.is('h1') || element.is('h2') || element.is('h3') || element.is('h4')
-//             || element.is('h5') || element.is('h6')) {
-//
-//             counter += 1;
-//             element.attr('id', 'title' + counter);
-//             glossary += '<a class="link-glossary" href="#' + 'title' + counter + '">' + element.text() + '</a>';
-//         }
-//     });
-//
-//     glossary += '<a class="bottom-article">Something to say ?</a>';
-//
-//     $('.modal-glossary-article').empty().append(glossary);
-//     position_module_article();
-//
-//     $('.link-glossary').click(function () {
-//         var scroll_elem = $('.modal-dialog-article');
-//         if ($(this).attr('class') == 'link-glossary top-article') {
-//             scroll_elem.animate({
-//                 scrollTop: 0
-//             }, 300);
-//         } else {
-//             scroll_elem.animate({
-//                 scrollTop: $($.attr(this, 'href')).offset().top + scroll_elem.scrollTop() - 20
-//             }, 300);
-//         }
-//     });
-//
-//     $('.bottom-article').click(function () {
-//         var scroll_elem = $('.modal-dialog-article');
-//         scroll_elem.animate({
-//             scrollTop: $('.modal-content-article').height() + scroll_elem.scrollTop()
-//         }, 300);
-//     });
-//
-//
-//     var min_height = $(window).height() - 30;
-//     article_content.css('min-height', min_height);
-//
-// }
+function render_article() {
+    var article_content = $('.modal-content-article');
+    var article = $('.article');
+    var counter = 0;
+    var glossary = '<div class="glossary-header">Glossary<i class="material-icons">library_books</i></div><a class="link-glossary top-article">Header</a>';
+    var current_title = '';
+
+    $('.content-article').find('*').each(function () {
+        $(this).removeAttr('style');
+    });
+
+    article_content.find('*').each(function () {
+        var element = $(this);
+
+        if (element.width() > element.parent().width()) {
+            element.css('width', '100%').css('height', 'auto');
+        }
+
+        if (((element.prev().is('p') || element.prev().is('div')) && (element.prev().html() == '<br>' || element.html() == '<br />'))
+            && ((element.is('p') || element.is('div')) && (element.html() == '<br>' || element.html() == '<br />'))) {
+            element.remove();
+        }
+
+        if ((element.prev().is('h1') || element.prev().is('h2') || element.prev().is('h3') || element.prev().is('h4')
+            || element.prev().is('h5') || element.prev().is('h6')) && ((element.html() == '<br>') && (element.is('p') || element.is('div')))) {
+            element.remove();
+        }
+
+        if (element.is('h1') || element.is('h2') || element.is('h3') || element.is('h4')
+            || element.is('h5') || element.is('h6')) {
+
+            counter += 1;
+            element.attr('id', 'title' + counter);
+            glossary += '<a class="link-glossary" href="#' + 'title' + counter + '">' + element.text() + '</a>';
+        }
+    });
+
+    glossary += '<a class="bottom-article">Something to say ?</a>';
+
+    $('.modal-glossary-article').empty().append(glossary);
+    position_module_article();
+
+    $('.link-glossary').click(function () {
+        var scroll_elem = $('.modal-dialog-article');
+        if ($(this).attr('class') == 'link-glossary top-article') {
+            scroll_elem.animate({
+                scrollTop: 0
+            }, 300);
+        } else {
+            scroll_elem.animate({
+                scrollTop: $($.attr(this, 'href')).offset().top + scroll_elem.scrollTop() - 20
+            }, 300);
+        }
+    });
+
+    $('.bottom-article').click(function () {
+        var scroll_elem = $('.modal-dialog-article');
+        scroll_elem.animate({
+            scrollTop: $('.modal-content-article').height() + scroll_elem.scrollTop()
+        }, 300);
+    });
+
+
+    var min_height = $(window).height() - 30;
+    article_content.css('min-height', min_height);
+
+}
 
 function position_module_article() {
     var pos = $('.modal-dialog-article').width();
