@@ -52,7 +52,7 @@ var Poll = function (id, element) {
         var body = '<div class="body-poll">';
         var header = '<div class="poll" id="' + poll_id + '">' +
             '<div class="header_poll">' +
-            '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+            '<button type="button" class="close close-poll" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
             '<div class="title_poll">' + poll_title + '</div>' +
             '</div><div class="progress-bar-poll"></div>';
         var counter_question = 0;
@@ -92,10 +92,8 @@ var Poll = function (id, element) {
             var questions = data[key]['questions'];
             result = poll(key, data[key]['poll_title'], questions);
         }
-        $(selector.body_selector).load(JS, function () {
-            $(selector.body_selector).empty().append(result);
-            $('.body-poll').children('div:not(#question1)').hide();
-        });
+        $(selector.body_selector).empty().append(result);
+        $('.body-poll').children('div:not(#question1)').hide();
         initColors(window.Manager.getPrimaryColor(), window.Manager.getSecondaryColor(), window.Manager.getImgUrl());
     };
 

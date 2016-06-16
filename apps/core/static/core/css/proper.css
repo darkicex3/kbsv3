@@ -397,13 +397,11 @@ nav {
 .footer-module {
     text-align: right;
     font-size: 9pt;
-    color: #4285f4;
     font-family: "Source Sans Pro", Roboto, sans-serif;
     padding: 7px 28px 21px 15px;
 }
 
 .footer-module a {
-    color: #4285f4;
     font-weight: 400;
 }
 
@@ -555,7 +553,6 @@ nav {
 }
 
 #static-menu {
-    border-bottom: #4285f4 1px solid;
     margin: 20px 15px 15px 15px;
     padding-bottom: 15px;
     padding-left: 0;
@@ -847,8 +844,14 @@ p {
 .title-question {
     text-align: center;
     margin: 0 10px 24px 10px;
-    font-size: 20pt;
+    font-size: 15pt;
     color: black;
+    line-height: 1.7;
+}
+
+.close-poll {
+    right: 15px !important;
+    top: 4px !important;
 }
 
 .choice {
