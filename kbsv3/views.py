@@ -5,6 +5,7 @@ from django.views.generic import TemplateView
 from tenant_schemas.utils import remove_www
 
 
+@login_required
 class HomeView(TemplateView):
     template_name = "index_public.html"
 

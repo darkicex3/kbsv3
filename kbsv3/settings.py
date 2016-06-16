@@ -193,6 +193,8 @@ TENANT_APPS = (
     'django.contrib.postgres',
 
     'notifications',
+    'polymorphic',
+    'chatrooms',
     'django_mptt_admin',
     'mptt',
     'urllib3',
