@@ -103,7 +103,8 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = '/static/'
+STATIC_HOST = 'd324h9d96d7zqv.cloudfront.net' if not DEBUG else ''
+STATIC_URL = STATIC_HOST + '/static/'
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -182,6 +183,7 @@ SHARED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'debug_toolbar',
 )
 
 TENANT_APPS = (
