@@ -9,7 +9,7 @@ from urllib.parse import urlparse
 
 from apps import registration
 
-DEBUG = False
+DEBUG = True
 
 
 # def _is_secure(self, request):
