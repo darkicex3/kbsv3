@@ -9,7 +9,6 @@ from django.contrib.auth.decorators import login_required
 class HomeView(TemplateView):
     template_name = "index_public.html"
 
-    @login_required
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
 
