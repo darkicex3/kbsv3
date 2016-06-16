@@ -34,7 +34,9 @@
     <![endif]-->
 
 {% include "core/modal.html" %}
-<div class="{{ request.tenant.primary_color }}" id="master_style">{{ request.tenant.domain_url }}</div>
+<div class="master_style">
+    {{ request.tenant.domain_url }}
+</div>
 <div class="nav-wrapper">
     <div class="menu" id="menu">
         {% block side_menu %}
@@ -59,7 +61,7 @@
     </div>
 </div>
 
-<div class="header">
+<div class="header" style="background-color:{{ request.tenant.primary_color }} !important">
     <div class="profile">
         {% block profile %}
             <div class="user_profile">
