@@ -1075,6 +1075,7 @@ span.bookmarkBadge {
     font-size: 21pt;
     color: white !important;
     display: block;
+    font-weight: 600;
     text-align: left;
 }
 
@@ -1085,8 +1086,8 @@ span.bookmarkBadge {
     background: #323543;
 }
 
-.header-article a {
-    color: #fff;
+.header-article a:hover {
+    text-decoration: none;
 }
 
 .attachment-article {
@@ -1303,7 +1304,6 @@ span.bookmarkBadge {
 
 .bottom-article {
     color: #fff !important;
-    background: rgb(164, 140, 210);
     transition: all 300ms;
 }
 
@@ -1311,7 +1311,6 @@ span.bookmarkBadge {
     text-align: center;
     width: 90%;
     margin: 10px;
-    border: rgb(164, 140, 210) 1px solid;
     transition: all 300ms;
     padding: 15px 15px 15px 15px;
     font-size: 9pt !important;
@@ -1373,7 +1372,7 @@ span.bookmarkBadge {
 
 .schedule-txt {
     margin-top: 7px;
-    background: #a48cd2;
+    background-color: #1c1c25 !important;
     padding: 10px 20px;
     text-align: center;
     color: white;
@@ -1381,7 +1380,14 @@ span.bookmarkBadge {
     width: initial !important;
     height: 37px !important;
     font-size: 12px !important;
-    font-weight: normal !important;
+    font-weight: bold;
+}
+
+button.close {
+    width: auto !important;
+    position: absolute;
+    left: 44px;
+    top: 26px;
 }
 
 .comment-mark {

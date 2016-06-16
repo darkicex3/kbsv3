@@ -89,12 +89,14 @@ $(document).ready(function () {
 
 function initColors(primaryColor, secondaryColor, imgUrl) {
     $('.daily-recap-pubdate').attr('style','background-color:' + primaryColor + ' !important');
-    $('.schedule-txt').attr('style','background-color:'+ primaryColor + ' !important');
     $('.favorite').attr('style','color:'+ primaryColor+ '!important');
     $('.material-icons.selected').attr('style','color:'+ secondaryColor+ ' !important');
     $('.nextq').attr('style','background:'+ secondaryColor+ ' !important');
     $('.header_poll').attr('style','background:'+ primaryColor+ ' !important');
     $('.completed_survey').attr('style','color:'+ secondaryColor+ ' !important');
     $('.color_favorites').attr('style','color:'+ primaryColor+ ' !important');
-    $('#static-menu').attr('style', 'border-bottom: '+secondaryColor+' 1px solid')
+    $('#static-menu').attr('style', 'border-bottom: '+secondaryColor+' 1px solid');
+    $('.color-new').attr('style', 'color: '+secondaryColor+'');
+    $('.bottom-article').attr('style', 'background: '+primaryColor+'');
+    $('.header-article').attr('style', 'background: '+primaryColor)
 };
