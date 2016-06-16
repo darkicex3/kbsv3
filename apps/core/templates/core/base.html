@@ -37,7 +37,8 @@
 <div class="nav-wrapper">
     <div class="menu" id="menu">
         {% block side_menu %}
-            <ul id="static-menu" class="menu-side-bar" style="border-bottom: {{ request.tenant.secondary_color }} 1px solid !important;"></ul>
+            <ul id="static-menu" class="menu-side-bar"
+                style="border-bottom: {{ request.tenant.secondary_color }} 1px solid !important;"></ul>
             <ul id="variable-menu" class="menu-side-bar"></ul>
         {% endblock %}
         <div class="copyright static">
@@ -64,15 +65,17 @@
             <div class="user_profile">
                 <form class="form-base" method="post">{% csrf_token %}
                     {% if request.user.is_superuser %}
-                        <a class="user-profile-link" href="{% url 'admin:auth_user_change' request.user.id %}">
-                            <div id="img_profile"></div>
+                        <a class="user-profile-link" href="https://www.teledirectasia.com">
+                            <div id="img_profile" style="background-image: url({% static 'core/css/img/tlogo1.png'%});"></div>
                         </a>
                     {% elif request.user.is_staff %}
-                        <a class="user-profile-link" href="{% url 'admin:auth_user_change' request.user.id %}">
-                            <div id="img_profile"></div>
+                        <a class="user-profile-link" href="https://www.teledirectasia.com">
+                            <div id="img_profile" style="background-image: url({% static 'core/css/img/tlogo1.png'%});"></div>
                         </a>
                     {% else %}
-                        <div id="img_profile"></div>
+                        <a class="user-profile-link" href="https://www.teledirectasia.com">
+                            <div id="img_profile" style="background-image: url({% static 'core/css/img/tlogo1.png'%});"></div>
+                        </a>
                     {% endif %}
                 </form>
                 <form class="form-admin" method="post">{% csrf_token %}
@@ -167,7 +170,8 @@
 
                 {% endblock %}
                 <div class="footer-module">
-                    <a style="color:{{ request.tenant.secondary_color }};" class="more_daily_recap" href="{% url 'core:daily_recap' %}">more daily recap ...</a>
+                    <a style="color:{{ request.tenant.secondary_color }};" class="more_daily_recap"
+                       href="{% url 'core:daily_recap' %}">more daily recap ...</a>
                 </div>
             </div>
 
