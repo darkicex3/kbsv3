@@ -14,7 +14,7 @@ class KnowledgeBase(TenantMixin):
     secondary_color = ColorField(default='#FF0000', help_text='This the secondary color of the KB.')
     created_on = models.DateField(auto_now_add=True)
     description = models.TextField(max_length=200)
-    css = models = models.TextField(max_length=255)
+    css = models.TextField(max_length=255)
 
     # default true, schema will be automatically created and synced when it is saved
     auto_create_schema = True
