@@ -75,7 +75,7 @@ var Article = function (id, element) {
 
         console.log(state);
         element.parent().find('.material-icons.selected').removeClass('selected').removeAttr('style');
-        element.addClass('selected').attr('style', 'color: ' + window.Manager.getColorKB() + ' !important');
+        element.addClass('selected').attr('style', 'color: ' + window.Manager.getPrimaryColor() + ' !important');
         // if (!state.hasClass('selected')) {
         //     state.removeClass('selected');
         // }

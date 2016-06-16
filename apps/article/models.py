@@ -141,6 +141,8 @@ class Article(models.Model):
         if not self.id:
             self.created = timezone.now()
         self.modified = timezone.now()
+        if self.file_content_option:
+            self.content = 'GROS CACA'
         return super(Article, self).save(*args, **kwargs)
 
     def get_feedback_alert(self):

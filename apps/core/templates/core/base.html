@@ -58,7 +58,7 @@
     </div>
 </div>
 
-<div class="header" style="background-color:{{ request.tenant.primary_color }} !important">
+<div class="header" style="background-color:{{ request.tenant.primary_color }} !important; {{ request.tenant.css }}">
     <div class="profile">
         {% block profile %}
             <div class="user_profile">
@@ -115,7 +115,7 @@
             </div>
         {% endblock %}
     </div>
-    <div class="logo"></div>
+    <div class="logo"><img src="{{ request.tenant.logo.url }}"></div>
     <div class="menu-button" id="menu">
                     <span class="title-button"><i class="menu-icon material-icons">menu</i>
                         <span class="txt">Home</span></span>

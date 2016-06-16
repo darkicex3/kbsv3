@@ -503,13 +503,6 @@ nav {
     font-size: 8pt;
 }
 
-.profile {
-    display: flex;
-    flex-grow: 1;
-    justify-content: flex-end;
-    width: 33%;
-}
-
 .menu ul li span {
     width: 100%;
     position: relative;
@@ -550,6 +543,10 @@ nav {
 .cat-header:hover {
     color: #fff;
     text-decoration: underline;
+}
+
+.logo img {
+    height: 48px;
 }
 
 #static-menu {
@@ -686,9 +683,6 @@ p {
 
 .profile {
     display: flex;
-    flex-grow: 1;
-    justify-content: flex-end;
-    width: 33%;
 }
 
 .newones {
@@ -708,13 +702,14 @@ p {
 
 .logo {
     flex-grow: 1;
-    width: 33%;
-    justify-content: flex-start;
+    text-align: center;
+    justify-content: center;
 }
 
 .menu-button {
     display: flex;
     cursor: pointer;
+    min-width: 208px;
 }
 
 .menu-button .title-button {
@@ -850,7 +845,8 @@ p {
 }
 
 .close-poll {
-    right: 15px !important;
+    left: initial !important;
+    right: 18px !important;
     top: 4px !important;
 }
 
