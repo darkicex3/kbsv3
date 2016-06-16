@@ -59,6 +59,24 @@ X_FRAME_OPTIONS = 'DENY'
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '104.199.154.36', 'kb.cuscom.xyz', '.kb.cuscom.xyz', 'kb.teledirectasia.com',
                  '.kb.teledirectasia.com']
 
+AWS_STORAGE_BUCKET_NAME = 'kbsv3'
+AWS_ACCESS_KEY_ID = 'AKIAJIHZJ4JELCTOJQNA'
+AWS_SECRET_ACCESS_KEY = '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'
+
+# Tell django-storages that when coming up with the URL for an item in S3 storage, keep
+# it simple - just use this domain plus the path. (If this isn't set, things get complicated).
+# This controls how the `static` template tag from `staticfiles` gets expanded, if you're using it.
+# We also use it in the next setting.
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+# This is used by the `static` template tag from `static`, if you're using that. Or if anything else
+# refers directly to STATIC_URL. So it's safest to always set it.
+STATIC_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
+
+# Tell the staticfiles app to use S3Boto storage when writing the collected static files (when
+# you run `collectstatic`).
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -85,25 +103,13 @@ USE_TZ = True
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'site_media/media')
-
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash.
-# Examples: "http://example.com/media/", "http://media.example.com/"
 MEDIA_URL = '/site_media/media/'
+
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
 STATICFILES_DIRS = (
     os.path.join(os.path.dirname(__file__), 'site_media/media'),  # or whatever you named it
 )
-
-# Absolute path to the directory static files should be collected to.
-# Don't put anything in this directory yourself; store your static files
-# in apps' "static/" subdirectories and in STATICFILES_DIRS.
-# Example: "/var/www/example.com/static/"
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-
-# URL prefix for static files.
-# Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = '/static/'
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -175,6 +181,7 @@ WSGI_APPLICATION = 'kbsv3.wsgi.application'
 SHARED_APPS = (
     'tenant_schemas',  # mandatory
     'apps.core.apps.CoreConfig',
+    'storages'
 
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -240,9 +247,6 @@ LOGGING = {
         },
     }
 }
-
-
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 
 def static_url(url):
