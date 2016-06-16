@@ -31,7 +31,7 @@ var ArticleManager = function (options) {
     var secondary_color = '';
     var img_url = '';
 
-    this.setColorKB = function (color) {
+    this.setColorKB = function () {
         $.ajax({
             url: GET_TENANT_STYLE,
             data: {},
@@ -435,7 +435,7 @@ var ArticleManager = function (options) {
 
 
         $(results_selector).empty().append(result).parent().parent().parent().show();
-        initColors(window.Manager.getColorKB());
+        initColors(window.Manager.getPrimaryColor(), window.Manager.getSecondaryColor(), window.Manager.getImgUrl());
 
         $('.att').click(function () {
             var e = $(this);
@@ -461,7 +461,7 @@ var ArticleManager = function (options) {
         }
 
         $(results_poll_selector).empty().append(result);
-        initColors(window.Manager.getColorKB());
+        initColors(window.Manager.getPrimaryColor(), window.Manager.getSecondaryColor(), window.Manager.getImgUrl());
     };
 
     var results_daily_recap = function (data) {
@@ -483,7 +483,7 @@ var ArticleManager = function (options) {
             $(daily_recap_feed_selector).empty().append(result);
         else
             $(results_daily_selector).empty().append(result);
-        initColors(window.Manager.getColorKB());
+        initColors(window.Manager.getPrimaryColor(), window.Manager.getSecondaryColor(), window.Manager.getImgUrl());
     };
 
     var list_polls = function (poll_id, poll_title, nb_questions, current_question) {
