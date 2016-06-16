@@ -62,9 +62,9 @@ var DailyRecap = function (id, element) {
         $(selector.stats_selector).empty().append(statsHTML);
 
         // RENDER HTML or PDF
+        initColors(window.Manager.getPrimaryColor(), window.Manager.getSecondaryColor(), window.Manager.getImgUrl());
         render_article();
         resize_iframe();
-        initColors(window.Manager.getColorKB());
 
     }; // OK
 

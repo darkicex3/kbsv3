@@ -60,12 +60,27 @@
       <file leaf-file-name="manager.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/core/static/core/js/manager/manager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="19" />
+            <state relative-caret-position="254">
+              <caret line="437" column="79" selection-start-line="437" selection-start-column="0" selection-end-line="438" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <marker date="1466069309000" expanded="true" signature="22166:22179" ph="..." />
                 <marker date="1466069309000" expanded="true" signature="24582:24595" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="poll.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apps/core/static/core/js/manager/poll.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="457">
+              <caret line="112" column="16" selection-start-line="112" selection-start-column="16" selection-end-line="112" selection-end-column="16" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <marker date="1466072097000" expanded="true" signature="2208:2222" ph="..." />
+                <marker date="1466072097000" expanded="true" signature="3040:3053" ph="..." />
+                <marker date="1466072097000" expanded="true" signature="3150:3163" ph="..." />
               </folding>
             </state>
           </provider>
@@ -84,11 +99,11 @@
       <file leaf-file-name="article.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/core/static/core/js/manager/article.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="772">
-              <caret line="282" column="50" selection-start-line="282" selection-start-column="50" selection-end-line="282" selection-end-column="50" />
+            <state relative-caret-position="502">
+              <caret line="142" column="117" selection-start-line="142" selection-start-column="117" selection-end-line="142" selection-end-column="117" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <marker date="1465961294000" expanded="true" signature="9713:9728" ph="..." />
+                <marker date="1466072121000" expanded="true" signature="9781:9796" ph="..." />
               </folding>
             </state>
           </provider>
@@ -97,18 +112,8 @@
       <file leaf-file-name="dailyrecap.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/core/static/core/js/manager/dailyrecap.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="38" column="39" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kbsv3/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="510">
+              <caret line="64" column="117" selection-start-line="64" selection-start-column="117" selection-end-line="64" selection-end-column="117" />
               <folding />
             </state>
           </provider>
@@ -126,11 +131,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="autocomplete.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="autocomplete.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/core/static/core/js/search/autocomplete.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="592">
-              <caret line="92" column="87" selection-start-line="92" selection-start-column="87" selection-end-line="92" selection-end-column="87" />
+            <state relative-caret-position="442">
+              <caret line="81" column="6" selection-start-line="81" selection-start-column="6" selection-end-line="81" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -146,8 +151,6 @@
         <option value="$PROJECT_DIR$/apps/core/static/core/css/proper.css" />
         <option value="$PROJECT_DIR$/kbsv3/templates/index_public.html" />
         <option value="$PROJECT_DIR$/kbsv3/templates/base.html" />
-        <option value="$PROJECT_DIR$/apps/core/static/core/js/manager/article.js" />
-        <option value="$PROJECT_DIR$/apps/core/static/core/js/manager/dailyrecap.js" />
         <option value="$PROJECT_DIR$/apps/article/models.py" />
         <option value="$PROJECT_DIR$/apps/core/static/core/js/other/animation.js" />
         <option value="$PROJECT_DIR$/apps/core/urls.py" />
@@ -161,8 +164,11 @@
         <option value="$PROJECT_DIR$/apps/core/views.py" />
         <option value="$PROJECT_DIR$/kbsv3/urls_public.py" />
         <option value="$PROJECT_DIR$/kbsv3/urls_tenants.py" />
-        <option value="$PROJECT_DIR$/apps/core/static/core/js/search/autocomplete.js" />
         <option value="$PROJECT_DIR$/apps/core/static/core/js/manager/render.js" />
+        <option value="$PROJECT_DIR$/apps/core/static/core/js/search/autocomplete.js" />
+        <option value="$PROJECT_DIR$/apps/core/static/core/js/manager/poll.js" />
+        <option value="$PROJECT_DIR$/apps/core/static/core/js/manager/article.js" />
+        <option value="$PROJECT_DIR$/apps/core/static/core/js/manager/dailyrecap.js" />
       </list>
     </option>
   </component>
@@ -975,19 +981,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/core/static/core/js/manager/poll.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2265">
-          <caret line="151" column="9" selection-start-line="151" selection-start-column="9" selection-end-line="151" selection-end-column="9" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <marker date="1465739609000" expanded="true" signature="2210:2224" ph="..." />
-            <marker date="1465739609000" expanded="true" signature="3042:3055" ph="..." />
-            <marker date="1465739609000" expanded="true" signature="3152:3165" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/core/templates/core/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -1114,7 +1107,7 @@
         <state relative-caret-position="240">
           <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
           <folding>
-            <element signature="e#0#43#0" expanded="true" />
+            <element signature="e#0#43#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1142,7 +1135,7 @@
         <state relative-caret-position="105">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1199,29 +1192,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/core/static/core/js/manager/article.js">
+    <entry file="file://$PROJECT_DIR$/apps/core/static/core/js/search/autocomplete.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="772">
-          <caret line="282" column="50" selection-start-line="282" selection-start-column="50" selection-end-line="282" selection-end-column="50" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <marker date="1465961294000" expanded="true" signature="9713:9728" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/core/static/core/js/manager/dailyrecap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="38" column="39" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
+        <state relative-caret-position="442">
+          <caret line="81" column="6" selection-start-line="81" selection-start-column="6" selection-end-line="81" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/core/static/core/js/manager/manager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="19" />
+        <state relative-caret-position="254">
+          <caret line="437" column="79" selection-start-line="437" selection-start-column="0" selection-end-line="438" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <marker date="1466069309000" expanded="true" signature="22166:22179" ph="..." />
@@ -1230,11 +1212,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/core/static/core/js/search/autocomplete.js">
+    <entry file="file://$PROJECT_DIR$/apps/core/static/core/js/manager/article.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="92" column="87" selection-start-line="92" selection-start-column="87" selection-end-line="92" selection-end-column="87" />
+        <state relative-caret-position="502">
+          <caret line="142" column="117" selection-start-line="142" selection-start-column="117" selection-end-line="142" selection-end-column="117" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1466072121000" expanded="true" signature="9781:9796" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/core/static/core/js/manager/dailyrecap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="64" column="117" selection-start-line="64" selection-start-column="117" selection-end-line="64" selection-end-column="117" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/core/static/core/js/manager/poll.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="112" column="16" selection-start-line="112" selection-start-column="16" selection-end-line="112" selection-end-column="16" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1466072097000" expanded="true" signature="2208:2222" ph="..." />
+            <marker date="1466072097000" expanded="true" signature="3040:3053" ph="..." />
+            <marker date="1466072097000" expanded="true" signature="3150:3163" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

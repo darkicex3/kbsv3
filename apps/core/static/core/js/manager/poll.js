@@ -30,7 +30,7 @@ var Poll = function (id, element) {
         })
     };
 
-    
+
     // GET POLL JSON FROM DATABASE
     var query = function (id) {
         $.ajax({
@@ -61,7 +61,7 @@ var Poll = function (id, element) {
             var counter = 0;
             counter_question++;
             var choices = questions[question];
-            body += '<div class="question-poll" id="question'+ counter_question +'">' +
+            body += '<div class="question-poll" id="question' + counter_question + '">' +
                 '<div class="img_poll"><img style="display: none;" src="#"></div>' +
                 '<div class="title-question">' + question + '</div><div class="choices">';
             for (var choice in choices) if (choices.hasOwnProperty(choice)) {
@@ -96,7 +96,7 @@ var Poll = function (id, element) {
             $(selector.body_selector).empty().append(result);
             $('.body-poll').children('div:not(#question1)').hide();
         });
-        initColors(window.Manager.getColorKB());
+        initColors(window.Manager.getPrimaryColor(), window.Manager.getSecondaryColor(), window.Manager.getImgUrl());
     };
 
     // SHOW POLL

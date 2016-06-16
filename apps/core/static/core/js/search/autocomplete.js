@@ -81,7 +81,6 @@ $(document).ready(function () {
 
     };
 
-
     window.autocomplete = new Autocomplete({
         form_selector: '.autocomplete-me'
     });

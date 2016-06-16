@@ -140,10 +140,9 @@ var Article = function (id, element) {
         } else {
             $('.nb_attachments').hide();
         }
-
+        initColors(window.Manager.getPrimaryColor(), window.Manager.getSecondaryColor(), window.Manager.getImgUrl());
         render_article();
         resize_iframe();
-        initColors(window.Manager.getColorKB());
 
     }; // OK
 
