@@ -9,7 +9,7 @@ from urllib.parse import urlparse
 
 from apps import registration
 
-DEBUG = True
+DEBUG = False
 
 
 # def _is_secure(self, request):
@@ -45,10 +45,8 @@ APPS_DIR = os.path.realpath(os.path.join(ROOT_DIR, 'apps'))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(APPS_DIR)
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'site_media/media')
-MEDIA_URL = '/site_media/media/'
+# Hosts/domain names that are valid for this site; required if DEBUG is False
+# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 
 CSRF_COOKIE_SECURE = False
 SESSION_COOKIE_SECURE = False
@@ -65,7 +63,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', '104.199.154.36', 'kb.cuscom.xyz', '.
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
 # In a Windows environment this must be set to your system time zone.
-TIME_ZONE = 'Asia/Singapore'
+TIME_ZONE = 'America/Chicago'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -84,9 +82,28 @@ USE_L10N = True
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
 
+# Absolute filesystem path to the directory that will hold user-uploaded files.
+# Example: "/var/www/example.com/media/"
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'site_media/media')
+
+# URL that handles the media served from MEDIA_ROOT. Make sure to use a
+# trailing slash.
+# Examples: "http://example.com/media/", "http://media.example.com/"
+MEDIA_URL = '/site_media/media/'
+
 STATICFILES_DIRS = (
     os.path.join(os.path.dirname(__file__), 'site_media/media'),  # or whatever you named it
 )
+
+# Absolute path to the directory static files should be collected to.
+# Don't put anything in this directory yourself; store your static files
+# in apps' "static/" subdirectories and in STATICFILES_DIRS.
+# Example: "/var/www/example.com/static/"
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+
+# URL prefix for static files.
+# Example: "http://example.com/static/", "http://static.example.com/"
+STATIC_URL = '/static/'
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -106,12 +123,11 @@ TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
+    'kbsv3.middleware.TenantTutorialMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -133,6 +149,22 @@ TEMPLATES = [
         },
     },
 ]
+#
+# TEMPLATES = [
+#     {
+#         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+#         'DIRS': [os.path.join(os.path.dirname(__file__), "staticfiles", "templates")],
+#         'APP_DIRS': True,
+#         'OPTIONS': {
+#             'context_processors': [
+#                 'django.template.context_processors.debug',
+#                 'django.template.context_processors.request',
+#                 'django.contrib.auth.context_processors.auth',
+#                 'django.contrib.messages.context_processors.messages',
+#             ],
+#         },
+#     },
+# ]
 
 ROOT_URLCONF = 'kbsv3.urls_tenants'
 PUBLIC_SCHEMA_URLCONF = 'kbsv3.urls_public'
@@ -143,12 +175,12 @@ WSGI_APPLICATION = 'kbsv3.wsgi.application'
 SHARED_APPS = (
     'tenant_schemas',  # mandatory
     'apps.core.apps.CoreConfig',
+
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'whitenoise',
 )
 
 TENANT_APPS = (
@@ -210,8 +242,7 @@ LOGGING = {
 }
 
 
-# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 
 def static_url(url):
@@ -310,6 +341,3 @@ SUMMERNOTE_CONFIG = {
     # You can disable file upload feature.
     'disable_upload': True,
 }
-
-
-
