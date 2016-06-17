@@ -641,7 +641,6 @@ a.add-button {
     width: 25px;
     margin-left: 10px;
     border-radius: 3px;
-    background-image: url('https://s3-ap-southeast-1.amazonaws.com/kbsv3/tlogo1.png?X-Amz-Date=20160616T104448Z&X-Amz-Expires=300&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Signature=52bdbffe4c403855c80becb28f0daff70bded666e321d25a28c22519d61c6882&X-Amz-Credential=ASIAJ5OLBA7ZXNGY73CQ/20160616/ap-southeast-1/s3/aws4_request&X-Amz-SignedHeaders=Host&x-amz-security-token=FQoDYXdzEJv//////////wEaDEqRHsCBeMXO9zpjnSLHASkRAFzMyO3GFA4RNadMU4hCTLUQ%2BIBS8TiyGT95byagBngm7QuKZf2/JIJSp1GpIzyPne4imBYHfnwzpaTZubZEaS8lqRuKCST6sDvm3e9Q0K%2B/PqlCbGH9/Pv2Ui4OW90RzUtWsTzn%2BFiQza8r4/ISkpEGLRx0tfD2gkq5sMkeuamDPdF0tpVtxKwitvhQnjMRUDL4mvF/JTk43XQl5MW6%2BtRUU1fIoJHTZqZiLgplYJHbA0Zfogwv5GJ0I1rgYtTaLUiJ1JUo8%2BmHuwU%3D') !important;
     background-size: cover;
 }
 
