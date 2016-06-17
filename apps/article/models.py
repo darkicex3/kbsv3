@@ -117,7 +117,6 @@ class Article(models.Model):
     url_article = models.CharField(max_length=255, default='', blank=True)
     file_content = models.FileField(upload_to='article_pdf',
                                     blank=True)
-    file_content_s3 = S3DirectField(dest='uploads', blank=True)
     publish_date = models.DateTimeField(help_text=publish_date_help, auto_now_add=True, editable=False)
     modified = models.DateTimeField(editable=False)
     status = models.CharField(max_length=255, choices=STATUS_CHOICES, default=STATUS_CHOICES[0])
