@@ -61,7 +61,7 @@ class ArticleAdmin(SummernoteModelAdmin, admin.ModelAdmin):
         }),
         ('Advanced options', {
             'fields': ('essential', 'is_public', 'by_groups', 'authorized_groups', 'authorized_users',
-                       'file_content_option', 'file_content', 'url_content_option',
+                       'file_content_option', 'file_content', 'file_content_s3', 'url_content_option',
                        'url_article', 'related_questions', 'polls', 'users_likes'),
         }),
     )

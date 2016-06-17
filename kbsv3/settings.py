@@ -22,7 +22,7 @@ DEBUG = True
 #     return False
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('maxime', 'maxime.junique@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -151,22 +151,12 @@ TEMPLATES = [
         },
     },
 ]
-#
-# TEMPLATES = [
-#     {
-#         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-#         'DIRS': [os.path.join(os.path.dirname(__file__), "staticfiles", "templates")],
-#         'APP_DIRS': True,
-#         'OPTIONS': {
-#             'context_processors': [
-#                 'django.template.context_processors.debug',
-#                 'django.template.context_processors.request',
-#                 'django.contrib.auth.context_processors.auth',
-#                 'django.contrib.messages.context_processors.messages',
-#             ],
-#         },
-#     },
-# ]
+
+# AWS keys
+AWS_SECRET_ACCESS_KEY = 'AKIAJIHZJ4JELCTOJQNA'
+AWS_ACCESS_KEY_ID = '7XNLAL5cBbx5GnhyiQ35RnuKQJIbzB7SvRqQXjHZ'
+AWS_STORAGE_BUCKET_NAME = 'kbsv3'
+S3DIRECT_REGION = 'ap-southeast-1'
 
 ROOT_URLCONF = 'kbsv3.urls_tenants'
 PUBLIC_SCHEMA_URLCONF = 'kbsv3.urls_public'
@@ -191,7 +181,7 @@ TENANT_APPS = (
     'django.contrib.auth',
     'django.contrib.admin',
     'django.contrib.postgres',
-
+    's3direct',
     'notifications',
     'django_mptt_admin',
     'mptt',
@@ -214,7 +204,8 @@ SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/registration/login/' \
  \
-    # A sample logging configuration. The only tangible logging
+
+# A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
 # See http://docs.djangoproject.com/en/dev/topics/logging for
@@ -342,5 +333,12 @@ SUMMERNOTE_CONFIG = {
     ),
 
     # You can disable file upload feature.
-    'disable_upload': True,
+    'disable_upload': False,
+}
+
+S3DIRECT_DESTINATIONS = {
+    # Allow anybody to upload any MIME type
+    'uploads': {
+        'key': 'uploads/misc',
+    },
 }
