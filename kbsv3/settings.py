@@ -89,7 +89,7 @@ MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'site_media/media')
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = 'http://kbsv3-44ee.kxcdn.com/site_media/media'
+MEDIA_URL = 'http://kbsv3-44ee.kxcdn.com/site_media/media/'
 
 STATICFILES_DIRS = (
     os.path.join(os.path.dirname(__file__), 'site_media/media'),  # or whatever you named it
