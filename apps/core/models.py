@@ -6,7 +6,7 @@ from colorfield.fields import ColorField
 
 class KnowledgeBase(TenantMixin):
     name = models.CharField(max_length=100)
-    logo = models.FileField(upload_to='knowledge_base_logo', blank=True)
+    logo = models.TextField(max_length=255)
     primary_color = ColorField(default='#FF0000', help_text='This is the primary color of the KB, it will fill the '
                                                             'header an other important section. Even if you choose'
                                                             'an ugly color combination, you will be able to change'

@@ -94,6 +94,6 @@ function initColors(primaryColor, secondaryColor, imgUrl) {
     $('.color_favorites').attr('style','color:'+ primaryColor+ ' !important');
     $('#static-menu').attr('style', 'border-bottom: '+secondaryColor+' 1px solid');
     $('.color-new').attr('style', 'color: '+secondaryColor+'');
-    $('.bottom-article').attr('style', 'background: '+primaryColor+'');
+    $('.bottom-article').attr('style', 'background: '+primaryColor+';');
     $('.header-article').attr('style', 'background: '+primaryColor)
 };
