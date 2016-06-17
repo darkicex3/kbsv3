@@ -867,12 +867,9 @@ class GetAttachmentsView(View):
 class GetMostPopularTags(View):
     def get(self, *args, **kwargs):
         context = {}
-        popular_tags = []
 
-        popular_articles = Article.objects.all().order_by('view_counter')[:10]
-
-        for articles in popular_articles:
-            for tag in articles.tags.all().order_by('click_counter')[:20]:
-                context.update({tag.name: tag.name})
+        popular_tags = Tag.objects.all().order_by('click_counter')[:10]
+        for tag in popular_tags:
+            context.update({tag.name: tag.name})
 
         return JsonResponse(context)
