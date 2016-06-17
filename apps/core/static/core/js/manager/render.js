@@ -105,8 +105,8 @@ function render_article() {
 function position_module_article() {
     var pos = $('.modal-dialog-article').width();
     var bodywidth = $(window).width();
-    var right = ((bodywidth - pos) / 2 ) - 189;
-    var left = ((bodywidth - pos) / 2 ) - 79;
+    var right = ((bodywidth - pos) / 2 ) - 210;
+    var left = ((bodywidth - pos) / 2 ) - 68;
 
 
     $('.modal-glossary-article').css('right', right);

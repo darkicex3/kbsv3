@@ -9,6 +9,6 @@ from . import settings
 
 urlpatterns = [
     url(r'^admin$', admin.site.urls),
-    url(r'^site_media/media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
+    url(r'^site_media/media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
     url(r'^$', HomeView.as_view()),
 ]
