@@ -14,9 +14,7 @@ var DailyRecap = function (id, element) {
     };
 
     this.setBigup = function (active, inactive) {
-        console.log(this.isBigup());
         var counter = this.element.parent().children('.counter');
-        console.log(counter);
         query_action(this.id, this.isBigup(), urls.bigup_manager);
         design(selector.bigup_icon, this.isBigup(), counter, active, inactive)
     };

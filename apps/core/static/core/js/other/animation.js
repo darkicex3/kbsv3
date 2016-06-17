@@ -47,7 +47,6 @@ function OnClickBookmarkGetArticlesByBookmark() {
 
         var cleaner = $('.clear-search-bar');
 
-        console.log(cleaner.children().first());
         cleaner.children().first().css('color', '#5d5d5d');
         if (!cleaner.is(":visible")) {
             cleaner.show().transition({width: '50px'});
@@ -58,7 +57,6 @@ function OnClickBookmarkGetArticlesByBookmark() {
         $('#search_bar input').attr('placeholder', '').empty().css('font-size', '14pt').css('color', '#5d5d5d !important').val('#' + $(this).text());
         $('#search_categories').empty().css('background', '#3498db');
         $('#search_sorting').css('background', '#3498db').find('.sorting').attr('class', 'sorting material-icons color_white md-36 first-item');
-        console.log($(this).attr('id'));
         increment_tag_counter($(this).attr('id').slice(1));
 
         window.Manager.getListArticle($(this).attr('id'));
@@ -81,7 +79,6 @@ function OnSearchBar() {
     }).keyup(function () {
         cleaner = $('.clear-search-bar');
         sc = $('#search_categories');
-        console.log('keyup', $(this).val(), cleaner.is(":visible"));
         if ($(this).val() == '' && cleaner.is(":visible")) {
             if (sc.css('background-color') != 'rgb(52, 152, 219)') {
                 cleaner.transition({width: '0'}, function () {
@@ -101,7 +98,6 @@ function OnSearchBar() {
         var sort_button = $('#search_sorting');
 
         $(this).children().first().css('color', '#5F5F5F');
-        console.log(cat_button.text());
         if (cat_button.text() != cat_txt) {
             cat_button.empty().append(cat_content);
             cat_button.css('background', '#fff');
@@ -136,7 +132,7 @@ function OnClickSearchBarSetEditable() {
 
 function increment_tag_counter(tag_name) {
     $.get(TAGS_COUNTER_INCREMENT, {'in':tag_name}, function (data) {
-        console.log(data)
+
     });
 }
 
@@ -166,7 +162,7 @@ function on_mouseover_li_show_children() {
                     $('.ps-scrollbar-y-rail').hide();
                     $('.ps-scrollbar-y').hide();
                     $(this).css('background', '#5d5d5d').children('.children').css('left', '234px').css('display', 'block');
-                    console.log('NAV WRAPPER :', nav_wrapper.width(), ' CHILDREN :', $(this).children('.children').width(), ' CHILDREN :', $('.menu').width());
+
                 }
             },
             mouseleave: function (event) {

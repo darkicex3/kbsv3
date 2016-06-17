@@ -49,8 +49,7 @@ $(document).ready(function () {
             tags = tags.slice(1);
         else
             tags = null;
-
-        console.log(tags);
+        
 
         window.Manager.getListArticle(tags, null, sort, null, true, query);
         // $.ajax({
@@ -62,7 +61,6 @@ $(document).ready(function () {
         //     }
         //     , success: function (data) {
         //         self.show_results(data);
-        //         console.log(data);
         //     }
         // })
     };
@@ -73,10 +71,9 @@ $(document).ready(function () {
 
         if (results.length > 0) {
             
-            console.log(results.length);
         }
         else {
-            console.log('No results');
+
         }
 
     };

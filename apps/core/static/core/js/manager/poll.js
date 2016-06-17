@@ -81,7 +81,6 @@ var Poll = function (id, element) {
             '</button><span class="nb_questions" id="' + counter_question + '" style="display: none"></span>' +
             '<span class="nb_choice_right" id="' + counter_choice_right + '" style="display: none"></span></div></footer>';
 
-        console.log(counter_choice_right);
         return header + body + footer;
     };
 
@@ -99,7 +98,6 @@ var Poll = function (id, element) {
 
     // SHOW POLL
     this.show = function () {
-        console.log(this.id);
         query(this.id);
     };
 
@@ -165,6 +163,5 @@ var Poll = function (id, element) {
 
 
     var testJQuery = function () {
-        console.log($(this));
     };
 };

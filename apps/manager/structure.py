@@ -26,9 +26,7 @@
 #         for word in sentence:
 #             if word not in stopwords.words('english'):
 #                 important_words.append(word)
-#         print(important_words)
 #         final_sentences.append(important_words)
-#         print(final_sentences)
 #
 #     return final_sentences
 #

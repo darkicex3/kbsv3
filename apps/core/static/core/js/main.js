@@ -7,7 +7,6 @@ jQuery(document).ready(function ($) {
     design_top_menu('#home');
 
     window.is_mobile = ($('.front').css('flex-direction') == 'column');
-    console.log($('.front').css('flex-direction'));
     window.nb_polls_displayed = 4;
     window.nb_dr_displayed = 4;
     window.Manager.initEvents();
@@ -60,8 +59,7 @@ jQuery(document).ready(function ($) {
     $('.menu-icon').click(function () {
         window.nav_wrapper = $('.nav-wrapper');
         window.app = $('.app');
-
-        console.log(window.is_mobile, 'erwjbjubw : ', $('.main-content').css('padding'));
+        
         if (window.is_mobile) {
             if (window.nav_wrapper.is(':visible'))
                 window.nav_wrapper.hide();

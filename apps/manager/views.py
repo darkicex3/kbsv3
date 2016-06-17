@@ -24,7 +24,6 @@ class ManageSidebarShortcutsShowingView(View):
                 children.update({child.id: {'child_name': child.name}})
                 has_children = True
 
-            print('CATEGORIES', category.name, children, has_children)
             context.update({category.id: {
                 'name': category.name,
                 'static': category.static,

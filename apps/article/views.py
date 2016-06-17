@@ -37,7 +37,6 @@ def articles_search(request):
     tags = request.GET.get('in')
     sort = request.GET.get('by')
 
-    print(tags)
     suggestions = []
 
     # sqs = SearchQuerySet().autocomplete(title_auto__startswith=request.GET.get('q'))
@@ -102,7 +101,6 @@ class SetLikedView(View):
 
         article_id = self.request.GET.get('id')
         action = self.request.GET.get('action')
-        print(article_id, action)
         q = Article.objects.get(id=article_id)
         user = self.request.user
 
@@ -125,7 +123,6 @@ class SetUsefulView(View):
 
         article_id = self.request.GET.get('id')
         action = self.request.GET.get('action')
-        print(article_id, action)
         q = Article.objects.get(id=article_id)
         user = self.request.user
 
@@ -251,7 +248,6 @@ class SetUsefulDailyRecapView(View):
 
         # daily_recap_id = self.request.GET.get('id')
         # action = self.request.GET.get('action')
-        # print(daily_recap_id, action)
         # q = DailyRecap.objects.get(id=daily_recap_id)
         # user = self.request.user
         #
@@ -297,8 +293,6 @@ class ShowDailyRecapView(View):
         daily_recap_id = self.request.GET.get('id')
         user = self.request.user
         daily_recap = DailyRecap.objects.get(id=daily_recap_id)
-
-        print(id, daily_recap.title)
 
         # try:
         #     UserDailyRecap.objects.get(user_id=user.id, daily_recap_id=daily_recap.pk, readed=True)
@@ -387,7 +381,6 @@ class GetDailyRecapView(View):
 
             # CHECK IF USER BELONG TO AUTHORIZED GROUP(S) OR AUTHORIZED USER(S)
             if art.is_public is False:
-                print('PRIVATE')
                 if art.by_groups is True:
                     if len([i for i in groups if i in art.authorized_groups.values_list('name', flat=True)]) == 0:
                         continue
@@ -434,7 +427,6 @@ class GetArticlesByStaticShortcutsView(View):
 
         # AUTOCOMPLETE MODE
         if autocomplete == 'true':
-            print('*************************** ' + autoquery + ' ***************************')
             # sqs = SearchQuerySet().autocomplete(title_auto__startswith=autoquery)
             sqs = Article.objects.filter(title__icontains=autoquery)
 
@@ -505,7 +497,6 @@ class GetArticlesByStaticShortcutsView(View):
                         ids = user.get_related_articles_viewed()
                         for i in ids:
                             articles.append(Article.objects.get(id=i, status='p'))
-                        print(articles[0])
                     except ObjectDoesNotExist:
                         context.update({'msg': 'Nothing for the moment :( Visit an article !'})
                         return JsonResponse(context)
@@ -552,9 +543,7 @@ class GetArticlesByStaticShortcutsView(View):
         for article in articles:
 
             # IF FAVORITES CHECK IF USER LIKE THIS
-            print(article.users_likes.values_list('username', flat=True), user.username, get_by)
             if get_by == 'Favorites':
-                print('Favorites')
                 if user.username not in article.users_likes.values_list('username', flat=True):
                     break
 
@@ -614,7 +603,6 @@ class GetArticlesByStaticShortcutsView(View):
                 time = article.publish_date.strftime("%d %b %Y")
                 update = 'ko'
 
-            print(article.publish_date.day, timezone.now().day)
             if article.publish_date.day == timezone.now().day:
                 newart = True
             else:
@@ -770,14 +758,10 @@ class GetFeedback(View):
         article_id = self.request.GET.get('id')
         user = self.request.user
 
-        print(feedback_choice, feedback_text, user, article_id)
-
         obj = Feedback.objects.create(date=timezone.now(), author=user, rate=feedback_choice,
                                       explanation=feedback_text, article=Article.objects.get(id=article_id))
 
         obj.save()
-
-        print(obj)
 
         return JsonResponse(context)
 
@@ -796,8 +780,6 @@ class GetPollsView(View):
         groups = self.request.user.groups.values_list('name', flat=True)
         today = timezone.now()
         choices = {}
-
-        print('ARTICLE_ID :', today.day)
 
         if poll_id != '':
             poll = Poll.objects.get(id=poll_id)
@@ -858,12 +840,9 @@ class WrongOrRightView(View):
         context = {}
         choice_id = self.request.GET.get('choice_id')
 
-        print(Choice.objects.get(id=choice_id).type)
-
         if (Choice.objects.get(id=choice_id)).type == '0':
             context.update({'ok': 'ok'})
 
-        print(context)
         return JsonResponse(context)
 
 

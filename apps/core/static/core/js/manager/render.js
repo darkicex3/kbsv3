@@ -154,7 +154,7 @@ function renderPDFfromUrl(url) {
                             return svgGfx.getSVG(opList, viewport);
                         })
                         .then(function (svg) {
-                            console.log(svg.setAttribute('style', 'width:100%;'));
+                            svg.setAttribute('style', 'width:100%;');
                             container.appendChild(svg);
                         });
                 });

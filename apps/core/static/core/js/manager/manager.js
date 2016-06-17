@@ -98,7 +98,6 @@ var ArticleManager = function (options) {
 
         for (var element in selector_action) if (selector_action.hasOwnProperty(element))
             window.body.on("click", selector_action[element], function () {
-                console.log($(this));
                 action($(this))
             });
     };
@@ -161,7 +160,6 @@ var ArticleManager = function (options) {
 
     var article = function (object) {
         var article = new Article(object.parent().parent().attr("id"), object.parent().parent());
-        console.log(object.parent().attr("id"), object.parent());
         current_article = article;
         article.setView();
         article.show();
@@ -193,7 +191,6 @@ var ArticleManager = function (options) {
     };
 
     var showResultsPolls = function () {
-        console.log('3efrih3bg');
         $('.restart-poll').remove();
         $('.show-results-poll').remove();
         $('.question-poll').show();
@@ -222,9 +219,7 @@ var ArticleManager = function (options) {
         var right_choice_number = parseInt(object.parent().find('.nb_choice_right').attr('id'));
 
         current_score_survey += active_right_choices.length;
-
-        console.log('pollFinalResult: ', current_score_survey, right_choice_number);
-
+        
 
         if (next_question - 1 == question_number) {
             $('#question' + next_question).hide();
@@ -328,12 +323,10 @@ var ArticleManager = function (options) {
             design_top_menu(object);
         }
         else if (object.attr('class').indexOf('color-explicit') >= 0) {
-            console.log('gros seins');
             window.Manager.getListArticle('Essential');
             design_top_menu('.essentials-button');
         }
         else if (object.attr('id').indexOf('essentials') >= 0) {
-            console.log('gros seins');
             window.Manager.getListArticle('Essential');
             design_top_menu(object);
         }
@@ -440,7 +433,6 @@ var ArticleManager = function (options) {
         $('.att').click(function () {
             var e = $(this);
             $.get(GET_ATTACHMENTS, {'id': e.parent().parent().attr('id')}, function (data) {
-                console.log(e);
                 e.webuiPopover({
                     width: '300',
                     title: 'Attachments',

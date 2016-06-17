@@ -9,14 +9,11 @@ var Article = function (id, element) {
     this.id = id;
 
     this.isLike = function () {
-        console.log(this.element.parent().children().last().attr('class').indexOf('favorite-active'));
         return !(this.element.parent().children().last().attr('class').indexOf('favorite-active') >= 0);
     };
 
     this.setLike = function (active, inactive) {
-        console.log(this.isLike());
         var counter = this.element.parent().children('.counter');
-        console.log(counter);
         query_action(this.id, this.isLike(), urls.like_manager);
         design(selector.like_icon, this.isLike(), counter, active, inactive);
     };
@@ -26,9 +23,7 @@ var Article = function (id, element) {
     };
 
     this.setBigup = function (active, inactive) {
-        console.log(this.isBigup());
         var counter = this.element.parent().children('.counter');
-        console.log(counter);
         query_action(this.id, this.isBigup(), urls.bigup_manager);
         design(selector.bigup_icon, this.isBigup(), counter, active, inactive)
     };
@@ -72,8 +67,6 @@ var Article = function (id, element) {
     this.changeMarkFeedback = function () {
         var state = this.element.attr('class');
         var element = this.element;
-
-        console.log(state);
         element.parent().find('.material-icons.selected').removeClass('selected').removeAttr('style');
         element.addClass('selected').attr('style', 'color: ' + window.Manager.getPrimaryColor() + ' !important');
         // if (!state.hasClass('selected')) {
