@@ -49,6 +49,7 @@
       None.
       {% endif %}
   {% for tenant in tenants_list %}
+
       <a href="http://{{ tenant.domain_url }}">{{ tenant.name }}</a> &middot;
   {% endfor %}</p>
   <p style="float: right;">
