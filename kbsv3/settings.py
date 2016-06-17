@@ -89,7 +89,7 @@ MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'site_media/media')
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = 'http://kbsv3-44ee.kxcdn.com/site_media/media/'
+MEDIA_URL = 'http://d324h9d96d7zqv.cloudfront.net/site_media/media/'
 
 STATICFILES_DIRS = (
     os.path.join(os.path.dirname(__file__), 'site_media/media'),  # or whatever you named it
@@ -104,7 +104,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
 # STATIC_HOST = 'd324h9d96d7zqv.cloudfront.net' if not DEBUG else ''
-STATIC_URL = 'http://kbsv3-44ee.kxcdn.com/static/'
+STATIC_URL = 'http://d324h9d96d7zqv.cloudfront.net/static/'
 
 # List of finder classes that know how to find static files in
 # various locations.
