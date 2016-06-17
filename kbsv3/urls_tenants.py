@@ -9,6 +9,7 @@ from . import settings
 urlpatterns = [
     # url(r'^$', TenantView.as_view()),
     url(r'^s3direct/', include('s3direct.urls')),
+    url(r'^site_media/media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT,}),
     url(r'^inbox/notifications/', include(notifications.urls, namespace='notifications')),
     url(r'^attachments/', include('attachments.urls', namespace='attachments')),
     url(r'^summernote/', include('django_summernote.urls')),
