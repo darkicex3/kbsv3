@@ -1,16 +1,16 @@
+import PyPDF2
 from django.contrib.auth.models import User, Group
-from django.contrib import auth
-from django.core.files.storage import FileSystemStorage
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from six import python_2_unicode_compatible
 # from haystack.query import SearchQuerySet
 from mptt.models import TreeForeignKey, MPTTModel
 from .constants import *
 import datetime
 from django.utils import timezone
-from django.db import models
 from colorfield.fields import ColorField
 from django.db import models
-from s3direct.fields import S3DirectField
+import os
 
 
 def get_upload_filename(instance, filename):
@@ -139,12 +139,13 @@ class Article(models.Model):
     users_view = models.ManyToManyField(User, blank=True, related_name='users_view')
     users_read = models.ManyToManyField(User, blank=True, related_name='users_read')
 
+    def post_save(self, *args, **kwargs):
+        print(self)
+
     def save(self, *args, **kwargs):
         if not self.id:
             self.created = timezone.now()
         self.modified = timezone.now()
-        if self.file_content_option:
-            self.content = 'GROS CACA'
         return super(Article, self).save(*args, **kwargs)
 
     def get_feedback_alert(self):
@@ -165,6 +166,20 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+
+def pdf_searchable(sender, instance, **kwargs):
+    post_save.disconnect(pdf_searchable, sender=sender)
+    if instance.file_content_option:
+        file = open('/Applications/XAMPP/xamppfiles/htdocs/kbsv3/kbsv3/'+instance.file_content.url, 'rb')
+        reader = PyPDF2.PdfFileReader(file)
+        print(reader.getNumPages())
+        for x in range(0, reader.getNumPages()):
+            page = reader.getPage(x)
+            instance.content += page.extractText()
+        instance.save()
+    post_save.connect(pdf_searchable, sender=sender)
+post_save.connect(pdf_searchable, sender=Article)
 
 
 class Feedback(models.Model):
