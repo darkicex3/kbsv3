@@ -171,7 +171,7 @@ class Article(models.Model):
 def pdf_searchable(sender, instance, **kwargs):
     post_save.disconnect(pdf_searchable, sender=sender)
     if instance.file_content_option:
-        file = open('/Applications/XAMPP/xamppfiles/htdocs/kbsv3/kbsv3/'+instance.file_content.url, 'rb')
+        file = open('/var/www/kbsv3/kbsv3/'+instance.file_content.url, 'rb')
         reader = PyPDF2.PdfFileReader(file)
         print(reader.getNumPages())
         for x in range(0, reader.getNumPages()):
