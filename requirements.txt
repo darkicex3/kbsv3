@@ -20,7 +20,7 @@ psycopg2==2.6.1
 pytz==2016.4
 simplejson==3.8.2
 six==1.10.0
-urllib3==1.15.1
+urllib3==1.26.5
 virtualenv==15.0.1
 django-storages
 boto
