@@ -1,4 +1,4 @@
-Django==1.9.7
+Django==2.2.24
 django-attachments==1.0
 django-colorfield==0.1.10
 django-contrib-comments==1.7.1
